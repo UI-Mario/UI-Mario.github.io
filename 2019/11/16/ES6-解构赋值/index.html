@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="ES6-解构赋值"><meta name="keywords" content="ES6"><meta name="author" content="Livio"><meta name="copyright" content="Livio"><title>ES6-解构赋值 | Livio's Blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.6.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.6.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的解构赋值"><span class="toc-number">1.</span> <span class="toc-text">数组的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的解构赋值"><span class="toc-number">2.</span> <span class="toc-text">对象的解构赋值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数参数的解构"><span class="toc-number">3.</span> <span class="toc-text">函数参数的解构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number"></span> <span class="toc-text">注意事项</span></a></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://ftp.bmp.ovh/imgs/2019/10/11cdc73b64ce92e0.jpg"></div><div class="author-info__name text-center">Livio</div><div class="author-info__description text-center">A Front-end Engineer</div><div class="follow-button"><a href="https://github.com/UI-Mario" target="_blank" rel="noopener">Follow me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">22</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">24</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://ftp.bmp.ovh/imgs/2019/11/2a5160a6f48b4b89.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Livio's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">ES6-解构赋值</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-11-16</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/ES6/">ES6</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">1.1k</span><span class="post-meta__separator">|</span><span>Reading time: 4 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h3 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h3><p>数组的解构赋值是基于数组位置的，比如：</p>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b] = [<span class="number">1</span>,<span class="number">2</span>] <span class="comment">// 结果a等于1，b等于2</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以通过解构改变变量的值。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">[a,b] = [<span class="number">100</span>, <span class="number">200</span>];</span><br></pre></td></tr></table></figure>
+
+<p>当=左边与右边不完全匹配时，未能匹配到的变量会被赋值为undefined,比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>] <span class="comment">//a为1，b为2，c为undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>所以可以通过给一些变量指定默认值，以防止这种情况的发生。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c=<span class="number">3</span>] = [<span class="number">1</span>,<span class="number">2</span>] <span class="comment">//a==1, b==2, c==3</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：只有当在右边找不到对应的值或值为undefined时，才会使用默认值。</p>
+<p>有时候，解构赋值中，你可能只关心一部分数据，这时可以通过占位符只给某些值赋值。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,,,b,,] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>] <span class="comment">//a==1 b==4</span></span><br></pre></td></tr></table></figure>
+
+<p>在解构赋值中，通过在变量前加…号，表示生成的变量为一个数组。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,,...b] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>] <span class="comment">//a == 1, b==[3,4,5]</span></span><br></pre></td></tr></table></figure>
+
+<p>上面展示的情况都是可以联合使用的,比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b=<span class="number">8</span>,,..c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>] <span class="comment">//a==1 b==2 c=[4,5,6]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="对象的解构赋值"><a href="#对象的解构赋值" class="headerlink" title="对象的解构赋值"></a>对象的解构赋值</h3><p>对象的解构赋值是基于属性的。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;name, age&#125; = &#123;</span><br><span class="line">    name: <span class="string">'icode007'</span>,</span><br><span class="line">    age: <span class="number">27</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//name == 'icode007' age==27</span></span><br></pre></td></tr></table></figure>
+
+<p>与数组的解构赋值一样，对象的解构赋值一样给未能解构的变量赋值undefined，一样可以使用默认值。</p>
+<p>当给已存在的变量解构赋值时，注意加()</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name, age;</span><br><span class="line">(&#123;name, age&#125; = &#123;<span class="attr">name</span>: <span class="string">'icode007'</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>这是由于如果不加(),js会把左边看成一个代码块，会报错。 加了()后，整个变成了一个合法的表达式。</p>
+<p>在上面的解构赋值中，<em>变量名和对象中的属性名必须相同</em>，只有这样，才能找到对应的要解构赋值的数据。<br>但如果我们想要给数据赋一个不同的名字呢？ 也是有办法的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:myName, <span class="attr">age</span>: myAge&#125; = &#123;<span class="attr">name</span>: <span class="string">'icode007'</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样相应的名字和年龄就被赋值给myName和myAge了。</p>
+<p>也可以同时使用默认值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:myName, <span class="attr">age</span>: myAge, <span class="attr">jog</span>: myJob = <span class="string">'soft Engineer'</span>&#125; = &#123;<span class="attr">name</span>: <span class="string">'icode007'</span>, <span class="attr">age</span>: <span class="number">27</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上我们列举的对象的解构赋值的例子都非常的简单，但在实际开发中，JSON数据可能是非常复杂的，这时的解构赋值语法也可能变得复杂。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> node = &#123;</span><br><span class="line">    type: <span class="string">"Identifier"</span>,</span><br><span class="line">    name: <span class="string">"foo"</span>,</span><br><span class="line">    loc: &#123;</span><br><span class="line">        start: &#123;</span><br><span class="line">            line: <span class="number">1</span>,</span><br><span class="line">            column: <span class="number">1</span></span><br><span class="line">        &#125;,</span><br><span class="line">        end: &#123;</span><br><span class="line">            line: <span class="number">1</span>,</span><br><span class="line">            column: <span class="number">4</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">loc</span>: &#123; start &#125;&#125; = node;</span><br><span class="line"><span class="built_in">console</span>.log(start.line);</span><br><span class="line"><span class="built_in">console</span>.log(start.column);</span><br></pre></td></tr></table></figure>
+
+<p>注意：每当有:出现在解构赋值中时，:左边的标识符表示要检查的位置，右边表示要赋值的目标，如果右边是{}或[]时，表示要赋值的变量在更深层次结构中。</p>
+<p>上面的所有实例，如默认值，变量更名等特性都可能存在于一个解构赋值语句中。并且，数组的解构赋值与对象的解构赋值，也可以混合使用。这为我们从复杂的数据结构中提取相应数据提供了极大的便利。</p>
+<h3 id="函数参数的解构"><a href="#函数参数的解构" class="headerlink" title="函数参数的解构"></a>函数参数的解构</h3><p>函数参数的解构功能对于实现多参的函数是非常有用的。<br>比如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value, options</span>)</span>&#123;</span><br><span class="line">    options = options || &#123;&#125;;</span><br><span class="line">    <span class="keyword">var</span> secure = option.secure,</span><br><span class="line">        path = option.path,</span><br><span class="line">        domain = option.domain</span><br><span class="line">    ;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setCookie(<span class="string">'type'</span>, <span class="string">'js'</span>, &#123;</span><br><span class="line">    secure: <span class="literal">true</span>,</span><br><span class="line">    expires: <span class="number">60000</span></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上面的函数是常用的实现多参函数的方式，name, value为必填参数，所有可选参数封装到options中，作为options的属性使用。<br>但上面的函数存在一个问题就是，你只看函数的定义，是无法知道到底可选参数的名称是什么的？你需要阅读函数代码，了解函数才能使用它。</p>
+<p>使用函数参数解构则直观很多：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value, &#123;secure, path, domain&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用同样的使用方式可以调用这个函数。</p>
+<p>但是这种写法有种问题是当只传入name和value参数时，会报错。</p>
+<p>更好的写法是使用函数的默认参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">name, value, &#123;secure, path = <span class="string">"/"</span>, domain&#125; = &#123;&#125;</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>数组的解构赋值中，使用…rest的变量必须放在最后。</li>
+<li>与普通的变量的赋值语句一样，解构赋值语句也是有值的，它的值就是=右边的内容。</li>
+</ul>
+</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ES6/">ES6</a></div><div class="addthis_inline_share_toolbox pull-right"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5dce9b1af0029a58" async></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2019/11/16/ES6-%E5%B1%9E%E6%80%A7%E7%AE%80%E5%86%99/"><i class="fa fa-chevron-left">  </i><span>ES6-属性简写</span></a></div><div class="next-post pull-right"><a href="/2019/11/15/JS:this%E6%8C%87%E5%90%91/"><span>JS:this指向</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '76d2c1aea34c1eaf4851',
+  clientSecret: '0e9d445e5ff178359078dbc2b8b7cacdfa251416',
+  repo: 'UI-Mario.github.io',
+  owner: 'UI-Mario',
+  admin: 'UI-Mario',
+  id: md5(decodeURI(location.pathname)),
+  language: 'en'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(https://ftp.bmp.ovh/imgs/2019/11/2a5160a6f48b4b89.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2020 By Livio</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody" target="_blank" rel="noopener"><span>Melody</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://ui-mario.github.io/" target="_blank" rel="noopener">blog</a>!</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.6.1"></script><script src="/js/fancybox.js?version=1.6.1"></script><script src="/js/sidebar.js?version=1.6.1"></script><script src="/js/copy.js?version=1.6.1"></script><script src="/js/fireworks.js?version=1.6.1"></script><script src="/js/transition.js?version=1.6.1"></script><script src="/js/scroll.js?version=1.6.1"></script><script src="/js/head.js?version=1.6.1"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
