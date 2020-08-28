@@ -8,8 +8,6 @@ JavaScript 脚本语言具有以下特点:
 
 - 跨平台性。JavaScript 脚本语言不依赖于操作系统，仅需要浏览器的支持。可以在多种平台下运行（如 Windows、Linux、Mac、Android、IOS 等）
 
-
-
 https://mp.weixin.qq.com/s/nV75KBmRGpcE7Pn5Z-HUFg
 
 **附加**：**JavaScript 比 Java 慢的原因**
