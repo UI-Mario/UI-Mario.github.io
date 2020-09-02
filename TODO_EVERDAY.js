@@ -1,5 +1,9 @@
 // 2020/09/02
 // practice to write myself "new"
+// want todo: 
+// use my server  ------- 
+// build my cli ---------
+// learn net safety------
 
 // 首先函数接受不定量的参数，第一个参数为构造函数，接下来的参数被构造函数使用
 // 然后内部创建一个空对象 obj
