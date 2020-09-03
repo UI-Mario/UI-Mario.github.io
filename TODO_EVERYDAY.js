@@ -25,43 +25,39 @@ function myNew(Con, ...args) {
 // heapsort ------------
 // use my server  ------ n
 // build my cli -------- n
-var arr = [9, 10, 4, 5, 6, 13];
+var arr = [1, 5, 6, 8, 4, 2, 7, 3, 9, 10, 13];
 
-// TODO:失败，看了一个小时不知道问题出在哪。MD以后一定要找出来
-// const heapSort = (arr) => {
-//   initHeapfy(arr);
-//   for (var i = arr.length - 1; i > 0; i--) {
-//     [arr[i], arr[0]] = [arr[0], arr[i]];
-//     max_heapfy(arr, 0, i);
-//     // console.log(arr)
-//   }
-// };
+const heapSort = (arr) => {
+  initHeapfy(arr);
+  for (var i = arr.length - 1; i > 0; i--) {
+    [arr[i], arr[0]] = [arr[0], arr[i]];
+    max_heapfy(arr, 0, i);
+  }
+};
 
-// const max_heapfy = (arr, index, length) => {
-//   while (true) {
-//     let largest = index;
-//     let leftChild = 2 * index + 1;
-//     let rightChild = 2 * index + 2;
-//     if (leftChild < length && arr[leftChild] > arr[index]) {
-//       largest = leftChild;
-//     }
-//     if (rightChild < length && arr[rightChild] > arr[index]) {
-//       largest = rightChild;
-//     }
-//     if (largest === index) {
-//       break;
-//     }
-//     [arr[index], arr[largest]] = [arr[largest], arr[index]];
-//     index = largest;
-//   }
-// };
+const max_heapfy = (arr, index, length) => {
+  while (true) {
+    let largest = index;
+    let leftChild = 2 * index + 1;
+    let rightChild = 2 * index + 2;
+    if (leftChild < length && arr[leftChild] > arr[largest]) {
+      largest = leftChild;
+    }
+    if (rightChild < length && arr[rightChild] > arr[largest]) {
+      largest = rightChild;
+    }
+    if (largest === index) {
+      break;
+    }
+    [arr[index], arr[largest]] = [arr[largest], arr[index]];
+    index = largest;
+  }
+};
 
-// const initHeapfy = (arr) => {
-//   for (var i = Math.floor(arr.length / 2); i >= 0; i--) {
-//     max_heapfy(arr, i, arr.length);
-//   }
-// };
-// heapSort(arr);
-// console.log(arr);
-
-
+const initHeapfy = (arr) => {
+  for (var i = Math.floor(arr.length / 2); i >= 0; i--) {
+    max_heapfy(arr, i, arr.length);
+  }
+};
+heapSort(arr);
+console.log(arr);
