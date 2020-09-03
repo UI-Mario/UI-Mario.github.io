@@ -71,6 +71,39 @@ function quickSort(arr) {
 堆排序（还不熟，看一下https://juejin.im/post/6844903826923716616）
 */
 
+const heapSort = (arr) => {
+  heap_root(arr);
+  for (var i = arr.length - 1; i > 0; i--) {
+    [arr[i], arr[0]] = [arr[0], arr[i]];
+    max_heapfy(arr, 0, i); //不一定要整棵树排好序，保证顶部就好
+  }
+};
+
+const max_heapfy = (arr, index, length) => {
+  while (true) {
+    let largest = index;
+    let leftChild = 2 * index + 1;
+    let rightChild = 2 * index + 2;
+    if (leftChild < length && arr[leftChild] > arr[largest]) {
+      largest = leftChild;
+    }
+    if (rightChild < length && arr[rightChild] > arr[largest]) {
+      largest = rightChild;
+    }
+    if (largest === index) {
+      break;
+    }
+    [arr[index], arr[largest]] = [arr[largest], arr[index]];
+    index = largest;
+  }
+};
+
+const heap_root = (arr) => {
+  for (var i = Math.floor(arr.length / 2); i >= 0; i--) {
+    max_heapfy(arr, i, arr.length);
+  }
+};
+
 
 ```
 

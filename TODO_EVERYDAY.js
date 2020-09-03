@@ -19,19 +19,19 @@ function myNew(Con, ...args) {
 }
 
 // 2020/09/02
-// learn redux
-// learn net security:CORS
+// learn redux----------
+// learn net security:CORS------y
 // want todo:
-// heapsort ------------
+// heapsort ------------ y
 // use my server  ------ n
 // build my cli -------- n
 var arr = [1, 5, 6, 8, 4, 2, 7, 3, 9, 10, 13];
 
 const heapSort = (arr) => {
-  initHeapfy(arr);
+  heap_root(arr);
   for (var i = arr.length - 1; i > 0; i--) {
     [arr[i], arr[0]] = [arr[0], arr[i]];
-    max_heapfy(arr, 0, i);
+    max_heapfy(arr, 0, i); //不一定要整棵树排好序，保证顶部就好
   }
 };
 
@@ -54,10 +54,10 @@ const max_heapfy = (arr, index, length) => {
   }
 };
 
-const initHeapfy = (arr) => {
+const heap_root = (arr) => {
   for (var i = Math.floor(arr.length / 2); i >= 0; i--) {
     max_heapfy(arr, i, arr.length);
   }
 };
-heapSort(arr);
-console.log(arr);
+
+
