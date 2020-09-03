@@ -1,6 +1,6 @@
 // 2020/09/02
 // practice to write myself "new"
-// want todo: 
+// want todo:
 // use my server  ------- n
 // build my cli --------- n
 // learn net safety------ tomorrow
@@ -18,11 +18,12 @@ function myNew(Con, ...args) {
   return result instanceof Object ? result : obj;
 }
 
-
 // 2020/09/02
 // learn redux
 // learn net security:CORS
-// want todo: 
+// want todo:
 // heapsort ------------
 // use my server  ------ n
 // build my cli -------- n
+
+function heapSort(arr) {}
