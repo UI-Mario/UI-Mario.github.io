@@ -1,9 +1,9 @@
 // 2020/09/02
 // practice to write myself "new"
 // want todo: 
-// use my server  ------- 
-// build my cli ---------
-// learn net safety------
+// use my server  ------- n
+// build my cli --------- n
+// learn net safety------ tomorrow
 
 // 首先函数接受不定量的参数，第一个参数为构造函数，接下来的参数被构造函数使用
 // 然后内部创建一个空对象 obj
@@ -17,3 +17,12 @@ function myNew(Con, ...args) {
   const result = Con.apply(obj, args);
   return result instanceof Object ? result : obj;
 }
+
+
+// 2020/09/02
+// learn redux
+// learn net security:CORS
+// want todo: 
+// heapsort ------------
+// use my server  ------ n
+// build my cli -------- n
