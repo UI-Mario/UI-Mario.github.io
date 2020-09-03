@@ -2,7 +2,7 @@
 
 > https://juejin.im/post/6844903838621630477
 
-“CORS” stands for **C**ross*-**O***rigin **R**esource **S**haring. It allows you to make requests from one website to another website in the browser, which is normally prohibited by another browser policy called the Same-Origin Policy (SOP)
+“CORS” stands for **C**ross-**O**rigin **R**esource **S**haring. It allows you to make requests from one website to another website in the browser, which is normally prohibited by another browser policy called the Same-Origin Policy (SOP)
 
 The specific browser vulnerability that Same Origin Policy is meant to address is called “cross-site request forgery” (CSRF, or alternatively XSRF, don’t you love all these acronyms?).
 
