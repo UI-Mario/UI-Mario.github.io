@@ -12,7 +12,7 @@ As an example, you might go to a banking website and provide some credentials to
 
 Later on, you go to an innocent-seeming webpage listing some facts about bunnies. Unbeknownst to you, the webpage’s HTML also has a little Javascript script to make an AJAX request (see: [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)) to the previous banking website to make a wire transaction to another account. Because your session is still authenticated with the cookie that was stored earlier, the banking website thinks it’s just you clicking on a link on their site to submit a wire transaction. Oh no!
 
-The easy fix was for browsers to detect when a request is made from one website to another and prevent the response from being readable. This is the Same-Origin Policy.
+The easy fix for browsers was to detect when a request is made from one website to another and prevent the response from being readable. This is the Same-Origin Policy(SOP).
 
 ## Simple requests
 
