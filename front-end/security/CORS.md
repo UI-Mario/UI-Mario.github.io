@@ -24,7 +24,7 @@ To instruct the browser to expose server responses to a HTTP requests from certa
 
 ## Preflight requests
 
-This might be sufficient for simple GET, HEAD, or POST requests without any special http headers. However, for DELETE and PUT request, ‘unsafe’ requests which may impact the server’s data, or GET, HEAD and POST requests with customized headers, the browser will send a “preflight” request to find out the CORS result prior to sending the actual request (only if the preflight response determines access is permitted).
+This might be sufficient for simple GET, HEAD, or POST requests without any special http headers. However, for DELETE and PUT request, ‘**unsafe**’ requests which may impact the server’s data, or GET, HEAD and POST requests with customized headers, the browser will send a “preflight” request to find out the CORS result prior to sending the actual request (only if the preflight response determines access is permitted).
 
 The preflight request is an OPTIONS request made to the same HTTP path as the actual request, with a couple of HTTP headers:
 
