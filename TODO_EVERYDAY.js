@@ -18,8 +18,8 @@ function myNew(Con, ...args) {
   return result instanceof Object ? result : obj;
 }
 
-// 2020/09/02
-// learn redux----------
+// 2020/09/03
+// learn redux---------- tomorrow
 // learn net security:CORS------y
 // want todo:
 // heapsort ------------ y
@@ -61,3 +61,9 @@ const heap_root = (arr) => {
 };
 
 
+// 2020/09/04
+// learn redux---------- 
+// learn binary tree --- { DFS }
+// want todo:
+// use my server  ------ n
+// build my cli -------- n
