@@ -59,7 +59,7 @@ rebase:详见 https://backlog.com/git-tutorial/cn/stepup/stepup2_8.html
 - 恢复最近一次 stash 的存储（不会删除）：`git stash apply`
 - 恢复指定的存储代码（不会删除）：`git stash apply stash@{index}`
 - 显示最近一次的 stash 的存储做了哪些改动：` git stash show `
-- 显示指定的 stash 的存储做了哪些改动：` git stash show ``stash@{index}`
+- 显示指定的 stash 的存储做了哪些改动：` git stash show stash@{index}`
 - 删除指定的 stash：`git stash drop stash@{index}`
 - 删除所有缓存的stash：`git stash clear`
 
