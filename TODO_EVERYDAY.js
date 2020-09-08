@@ -81,3 +81,14 @@ const heap_root = (arr) => {
 // want todo:
 // use my server  ------ n
 // build my cli -------- n
+
+function DFS(root) {
+  if(!root){
+    return;
+  }
+  DFS(root.left);
+  DFS(root.right);
+  // 这里再保存一下root.val就是前序/后序/中序遍历
+}
+
+
