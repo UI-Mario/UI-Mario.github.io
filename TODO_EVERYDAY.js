@@ -67,3 +67,17 @@ const heap_root = (arr) => {
 // want todo:
 // use my server  ------ n
 // build my cli -------- n
+
+
+// sorry, lying on bed and do nothing
+
+// 2020/9/07
+// learn redux---------- 
+// learn binary tree --- { DFS } y
+// learn typescript----- wtf type declare namespace???
+// learn Reg------------ 
+// react+ts video-------
+// write essay: mac地址-- doesn`t matter
+// want todo:
+// use my server  ------ n
+// build my cli -------- n
