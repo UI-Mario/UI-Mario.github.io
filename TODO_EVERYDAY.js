@@ -60,22 +60,20 @@ const heap_root = (arr) => {
   }
 };
 
-
 // 2020/09/04
-// learn redux---------- 
+// learn redux----------
 // learn binary tree --- { DFS }
 // want todo:
 // use my server  ------ n
 // build my cli -------- n
 
-
 // sorry, lying on bed and do nothing
 
 // 2020/9/07
-// learn redux---------- 
+// learn redux----------
 // learn binary tree --- { DFS } y
 // learn typescript----- wtf type declare namespace???
-// learn Reg------------ 
+// learn Reg------------
 // react+ts video-------
 // write essay: mac地址-- doesn`t matter
 // want todo:
@@ -83,7 +81,7 @@ const heap_root = (arr) => {
 // build my cli -------- n
 
 function DFS(root) {
-  if(!root){
+  if (!root) {
     return;
   }
   DFS(root.left);
@@ -91,4 +89,24 @@ function DFS(root) {
   // 这里再保存一下root.val就是前序/后序/中序遍历
 }
 
+// 2020/9/09
+// learn redux----------
+// react+ts video-------
+// leetcode------------- y
+// want todo:
+// use my server  ------ n
+// build my cli -------- n
 
+
+// 2020/9/10
+// learn redux----------
+// react+ts video------- bili(), youtube
+// reading everyday-----
+// write ---------------{MVC,MVVC,[call,apply,bind], primose, compiler}
+// leetcode------------- y
+// want todo:
+// use my server  ------ n
+// build my cli -------- n
+
+
+// 2020/9/11

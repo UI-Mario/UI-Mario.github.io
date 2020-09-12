@@ -1,5 +1,7 @@
 推荐挺有意思的学习网站[try git](https://try.github.io/)
 
+![](/home/livio/Code/blog/UI-Mario.github.io/resource/git_command.png)
+
 ### 基础命令
 
 - 初始化一个Git仓库：`git init`
