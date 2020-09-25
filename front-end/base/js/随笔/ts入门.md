@@ -48,7 +48,7 @@ root2!.style.color = 'red';
 
 - **TS 3.7版本正式支持使用**
 - **`||` 运算符的缺点：** 当左侧表达式的结果是数字 0 或空字符串时，会被视为 `false`。
-- **空值合并运算符：只有左侧表达式结果为 `null` 或 `undefined` 时**，才会返回右侧表达式的结果。**通过这种方式可以明确地区分 `undefined、null` 与 `false` 的值**。
+- **空值合并运算符：只有左侧表达式结果为 `null` 或 `undefined` 时**，才会返回右侧表达式的结果；否则返回左边。**通过这种方式可以明确地区分 `undefined、null` 与 `false` 的值**。
 
 ```
 const data = {
@@ -109,3 +109,24 @@ console.log(greeter2.greet());// 'hey'
 ## never
 
 抛出异常或者根本没法结束执行，暂时我也很迷这是干啥的
+
+## &类型合并运算符
+
+在 TypeScript 中交叉类型是将多个类型合并为一个类型。通过 `&` 运算符可以将现有的多种类型叠加到一起成为一种类型，它包含了所需的所有类型的特性。
+
+```typescript
+type PartialPointX = { x: number; };
+type Point = PartialPointX & { y: number; };
+
+let point: Point = {
+  x: 1,
+  y: 1
+}
+```
+
+⚠️：存在同名但类型不同的成员时，该成员类型会变成`never`
+
+
+
+
+
