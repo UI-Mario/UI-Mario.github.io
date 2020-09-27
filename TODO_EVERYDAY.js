@@ -110,3 +110,41 @@ function DFS(root) {
 
 
 // 2020/9/11
+
+
+// 2020/9/26
+// learn redux---------- history, vuex?, own redux
+// leetcode-------------
+// write---------------- {MVC, MVVM}
+
+
+// 2020/9/27
+// chrome 打断点，调试----
+// leetcode-------------
+// react hooks----------
+// do this nearly by copy, rewrite it
+var permute = function(nums) {
+  if(!nums.length) return;
+  var res = [];
+  var path = [];
+  var usedId = new Set();
+  dfs(nums, 0, path, usedId, res);
+  return res;
+};
+
+var dfs = (nums, depth, path, usedId, res) => {
+  if(depth === nums.length){
+      res.push(path.concat());
+      return;
+  }
+  for(var i = 0;i < nums.length;i++){
+      if(usedId.has(i)) continue;
+      path.push(nums[i]);
+      usedId.add(i);
+      dfs(nums, depth + 1, path, usedId, res);
+      usedId.delete(i);
+      path.pop();
+  }
+  return res;
+}
+
