@@ -148,3 +148,7 @@ var dfs = (nums, depth, path, usedId, res) => {
   return res;
 }
 
+// 2020/9/28
+// leetcode-------------全排列2 y
+// chrome调试-----------y
+// react video---------想看正经企业级代码，有点难找
