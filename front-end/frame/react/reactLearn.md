@@ -1,3 +1,10 @@
+# 跟vue相比咋样？
+
+- 本质区别：react只是libray，而不是framework（这句话是react自己说的，虽然不太懂这是啥意思）
+- 数据渲染：
+  - vue直接是双向绑定（响应式数据渲染），数据更新导致UI渲染这块开发者不需要操心
+  - react则是对state进行操作来重新render
+
 # component
 
 详见[react官方文档](https://reactjs.org/docs/react-component.html)
@@ -132,3 +139,90 @@ You **should not call `setState()` here** because the component will never be re
 3. Avoid confusing the  `state` object with other instance properties. It’s easy to assume you can define another object in the constructor and try to use it like
 
      `state`, but the `state` instance is a special one because React will manage it:
+
+
+
+
+
+# props.children
+
+> https://zh-hans.reactjs.org/docs/composition-vs-inheritance.html
+
+组件嵌套的另类写法：
+
+```
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}
+    </div>
+  );
+}
+
+function WelcomeDialog() {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        Welcome
+      </h1>
+      <p className="Dialog-message">
+        Thank you for visiting our spacecraft!
+      </p>
+    </FancyBorder>
+  );
+}
+```
+
+但不好的是，这种写法导致所有子内容都是外面传进来的，FancyBorder自己没有。针对这个问题，下面是留下几个‘洞’的写法：（其实这种写法就相当于通过props把子组件传进去，不如上面的稀奇）
+
+# Fragment
+
+```
+render() {
+  return (
+    <React.Fragment>
+      <ChildA />
+      <ChildB />
+      <ChildC />
+    </React.Fragment>
+  );
+}
+```
+
+就是上述写法，根部不用\<div>而是<React.Fragment>，这样返回的列表就可以不被\<div>包裹
+
+# redux
+
+- UI
+- action
+- reducer
+- store
+- dispatch
+- subscribe
+
+# react-redux
+
+> [阮一峰：react-redux](https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_three_react-redux.html)
+
+但里面很多东西都更新了，例如connect()就可以接受四个参数：
+
+```
+@param mapStateToProps
+@param mapDispatchToProps
+@param mergeProps
+@param options
+```
+
+其实react-redux就只是专门为react使用redux添加了专门的api。
+
+## 源码阅读：
+
+- react-redux做了什么？
+- 如何做？
+
+
+
+# HOOK
+
+# Context(redux中provider依赖其实现)
+
