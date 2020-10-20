@@ -4,6 +4,7 @@
 - 数据渲染：
   - vue直接是双向绑定（响应式数据渲染），数据更新导致UI渲染这块开发者不需要操心
   - react则是对state进行操作来重新render
+  - 他俩的状态改变引起的重新渲染都会有异步，大概是为了性能考虑吧
 
 # component
 
@@ -224,5 +225,19 @@ render() {
 
 # HOOK
 
+## useState
+
+## useEffect
+
+## useReducer
+
+
+
 # Context(redux中provider依赖其实现)
+
+
+
+# Fiber
+
+
 
