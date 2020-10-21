@@ -36,6 +36,9 @@
 - 克隆远程仓库：`git clone repo-address`
 - 拉取远程分支的代码：`git pull`
 
+- git fetch
+- git rebase
+
 ### 分支操作
 
 - 查看分支：`git branch`
