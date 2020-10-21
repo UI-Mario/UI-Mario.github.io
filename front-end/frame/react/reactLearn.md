@@ -225,11 +225,18 @@ render() {
 
 # HOOK
 
-## useState
-
-## useEffect
-
-## useReducer
+- [基础 Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#basic-hooks)
+  - [`useState`](https://zh-hans.reactjs.org/docs/hooks-reference.html#usestate)
+  - [`useEffect`](https://zh-hans.reactjs.org/docs/hooks-reference.html#useeffect)
+  - [`useContext`](https://zh-hans.reactjs.org/docs/hooks-reference.html#usecontext)
+- [额外的 Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#additional-hooks)
+  - [`useReducer`](https://zh-hans.reactjs.org/docs/hooks-reference.html#usereducer)
+  - [`useCallback`](https://zh-hans.reactjs.org/docs/hooks-reference.html#usecallback)
+  - [`useMemo`](https://zh-hans.reactjs.org/docs/hooks-reference.html#usememo)
+  - [`useRef`](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref)
+  - [`useImperativeHandle`](https://zh-hans.reactjs.org/docs/hooks-reference.html#useimperativehandle)
+  - [`useLayoutEffect`](https://zh-hans.reactjs.org/docs/hooks-reference.html#uselayouteffect)
+  - [`useDebugValue`](https://zh-hans.reactjs.org/docs/hooks-reference.html#usedebugvalue)
 
 
 
@@ -239,5 +246,65 @@ render() {
 
 # Fiber
 
+# React.memo
 
+在react里面render是很大的开销，在开发过程中我们应该避免不必要的render。举个例子，当一个父组件render时，子组件也会被重新render，即使传过去的props没有改变。解决方案之一就是React.memo
+
+```
+// ...
+export default React.memo(Child);
+```
+
+但是是专门给 **Function Component** 提供的，对 **Class Component **并不适用。
+
+首先看下 React.memo() 的使用方式：
+
+```text
+function MyComponent(props) {
+  /* render using props */
+}
+function areEqual(prevProps, nextProps) {
+  /*
+  return true if passing nextProps to render would return
+  the same result as passing prevProps to render,
+  otherwise return false
+  */
+}
+export default React.memo(MyComponent, areEqual);
+```
+
+使用方式很简单，在 Function Component 之外，在声明一个 areEqual 方法来判断两次 props 有什么不同，如果第二个参数不传递，则默认只会进行 props 的**浅比较**。
+
+最终 export 的组件，就是 React.memo() 包装之后的组件。
+
+`React.memo` 仅检查 props 变更。如果函数组件被 `React.memo` 包裹，且其实现中拥有 [`useState`](https://zh-hans.reactjs.org/docs/hooks-state.html) 或 [`useContext`](https://zh-hans.reactjs.org/docs/hooks-reference.html#usecontext) 的 Hook，当 context 发生变化时，它仍会重新渲染。
+
+## useMemo
+
+而在某些场景下，我们只是希望 component 的部分不要进行 re-render，而不是整个 component 不要 re-render，也就是要实现 `局部 Pure` 功能（可真矫情:weary:）。
+
+
+
+# ref
+
+- React.cerateRef
+- Recat.forwardRef
+
+# React.lazy + react.Suspense
+
+```
+// 该组件是动态加载的
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    // 显示 <Spinner> 组件直至 OtherComponent 加载完成
+    <React.Suspense fallback={<Spinner />}>
+      <div>
+        <OtherComponent />
+      </div>
+    </React.Suspense>
+  );
+}
+```
 
