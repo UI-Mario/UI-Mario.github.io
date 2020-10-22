@@ -22,4 +22,6 @@
 
 # algorithm
 
+[sort](./algorithms/sort.md)
+
 # hobby
