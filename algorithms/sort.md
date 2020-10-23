@@ -44,6 +44,27 @@ function selectionSort(arr) {
   return arr;
 }
 
+/**
+ * 插入排序
+ * 其实就是把后面加进来的跟已经加好的不断交换
+ */
+
+function insertSort(arr){
+    //默认第一个元素已经被排序
+    for(let i = 1; i < arr.length; i++){
+        //从后往前依次和 当前元素比较 并交换位置
+        for(let j = i; j > 0; j--){
+            if(arr[j] < arr[j-1]){
+                [arr[j], arr[j-1]] = [arr[j-1], arr[j]]
+            } else {
+                break
+            }
+        }
+    }
+    return arr;
+}
+
+
 /*
 快排
 选一个基准点pivot，就可以把待分数组分成两部分：比基准点小、大，之后对于这两部分重复以上操作
