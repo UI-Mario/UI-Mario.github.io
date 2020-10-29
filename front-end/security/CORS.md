@@ -1,6 +1,8 @@
 ![](../../resource/CORS.jpg)
 
 > https://juejin.im/post/6844903838621630477
+>
+> https://juejin.im/post/6887744164079878151
 
 “CORS” stands for **C**ross-**O**rigin **R**esource **S**haring. It allows you to make requests from one website to another website in the browser, which is normally prohibited by another browser policy called the Same-Origin Policy (SOP)
 
@@ -43,3 +45,23 @@ Web servers that wish to support CORS requests must respond to preflight request
 If any of the information in the response headers does not match the actual parameters of the request, the browser will not send the actual request, preventing unwanted side-effects from the server receiving the cross-origin request. (After all, including ‘Access-Control-Allow-Origin’ in the response to any of the other requests does not prevent those requests from being made to the server; it only prevents the browser from displaying the response.)
 
 There are more CORS headers the server may respond with, including ‘Access-Control-Expose-Headers’, ‘Access-Control-Max-Age’, and ‘Access-Control-Allow-Credentials’. Rather than go into too much detail, I would encourage you to take a look at [MDN’s detailed article about CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) (examples of HTTP requests/responses included!) and the meaning of each header.
+
+## 跨域解决方案
+
+### jsonp
+
+### CORS
+
+### document.domain + iframe
+
+### Location.hash + iframe
+
+### Window.name + iframe
+
+### postMessage
+
+### Nginx
+
+### nodejs中间件代理
+
+### WebSocket
