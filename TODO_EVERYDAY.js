@@ -115,7 +115,7 @@ function DFS(root) {
 // write---------------- {MVC, MVVM}
 
 // 2020/9/27
-// chrome 打断点，调试----
+// chrome 打断点，调试---- bili上有视频，漏的地方可以查资料
 // leetcode-------------
 // react hooks----------
 // do this nearly by copy, rewrite it
@@ -201,3 +201,5 @@ const temp = (res, path, nums, useId) => {
 // 个人也觉得这段时间的回溯太套路化，
 // 本来想着回溯差不多就刷dp，还是太年轻
 // 题号：39
+
+
