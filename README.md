@@ -12,6 +12,8 @@
 
 ## frame
 
+[redux](./front-end/frame/react/redux.md)
+
 ## node
 
 ## security
