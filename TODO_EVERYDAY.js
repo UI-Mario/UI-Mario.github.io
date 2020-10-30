@@ -97,7 +97,6 @@ function DFS(root) {
 // use my server  ------ n
 // build my cli -------- n
 
-
 // 2020/9/10
 // learn redux----------
 // react+ts video------- bili(), youtube
@@ -108,23 +107,20 @@ function DFS(root) {
 // use my server  ------ n
 // build my cli -------- n
 
-
 // 2020/9/11
-
 
 // 2020/9/26
 // learn redux---------- history, vuex?, own redux
 // leetcode-------------
 // write---------------- {MVC, MVVM}
 
-
 // 2020/9/27
 // chrome 打断点，调试----
 // leetcode-------------
 // react hooks----------
 // do this nearly by copy, rewrite it
-var permute = function(nums) {
-  if(!nums.length) return;
+var permute = function (nums) {
+  if (!nums.length) return;
   var res = [];
   var path = [];
   var usedId = new Set();
@@ -133,26 +129,46 @@ var permute = function(nums) {
 };
 
 var dfs = (nums, depth, path, usedId, res) => {
-  if(depth === nums.length){
-      res.push(path.concat());
-      return;
+  if (depth === nums.length) {
+    res.push(path.concat());
+    return;
   }
-  for(var i = 0;i < nums.length;i++){
-      if(usedId.has(i)) continue;
-      path.push(nums[i]);
-      usedId.add(i);
-      dfs(nums, depth + 1, path, usedId, res);
-      usedId.delete(i);
-      path.pop();
+  for (var i = 0; i < nums.length; i++) {
+    if (usedId.has(i)) continue;
+    path.push(nums[i]);
+    usedId.add(i);
+    dfs(nums, depth + 1, path, usedId, res);
+    usedId.delete(i);
+    path.pop();
   }
   return res;
-}
+};
 
 // 2020/10/9
 // learn website:
 // https://github.com/sisterAn/blog
 // https://egghead.io/
 
-
 // 2020/10/10
-// 
+//
+var levelOrderBottom = function (root) {
+  const res = [];
+  var dep = function (node, depth) {
+    if (!node) return;
+    res[depth] = res[depth] || [];
+    res[depth].push(node.val);
+    dep(node.left, depth + 1);
+    dep(node.right, depth + 1);
+  };
+  dep(root, 0);
+  return res.reverse();
+};
+
+// string -> 整数
+filterInt = function (value) {
+  if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
+    return Number(value);
+  return NaN;
+}
+
+

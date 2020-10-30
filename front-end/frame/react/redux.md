@@ -15,8 +15,8 @@
   ```
   const action = {
   	// 必须的，作为action的标识
-    type: 'ADD_TODO',      
-    // 携带的信息，用于替换redux中的数据，所以很重要
+  	type: 'ADD_TODO',
+  	// 携带的信息，用于替换redux中的数据，所以很重要
     // question：
     payload: 'Learn Redux' 
   };
