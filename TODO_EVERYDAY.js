@@ -166,9 +166,38 @@ var levelOrderBottom = function (root) {
 
 // string -> 整数
 filterInt = function (value) {
-  if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
-    return Number(value);
+  if (/^(\-|\+)?([0-9]+|Infinity)$/.test(value)) return Number(value);
   return NaN;
-}
+};
 
+// 模块化，hook，redux，ref
 
+// 2020/10/30
+// 写了段时间回溯，代码风格基本如下：
+const main = (nums) => {
+  var res = [];
+  var path = [];
+  var useId = []; // 或是var start = 0;
+  temp(res, path, nums, useId);
+  return res;
+};
+
+const temp = (res, path, nums, useId) => {
+  if (path === "满足的条件") {
+    res.push([...path]);
+    return;
+  }
+  for (var i = 0; i < nums.length; i++) {
+    if (useId.includes(i)) continue;
+    path.push(nums[i]);
+    useId.push(i);
+    temp(res, path, nums, useId);
+    path.pop();
+    useId.pop();
+  }
+};
+
+// 结果在leetcode被教育了
+// 个人也觉得这段时间的回溯太套路化，
+// 本来想着回溯差不多就刷dp，还是太年轻
+// 题号：39
