@@ -203,3 +203,9 @@ const temp = (res, path, nums, useId) => {
 // 题号：39
 
 // TODO:cookie, diff, ref, 39
+
+// 39还没看，动态规划和树入门题有点少没啥感觉，接下来先看看
+// 别人的博客啥的，找找灵感
+// leetcode_num：127
+
+// TODO:cookie, fiber->reconciliation->diff, webgl
