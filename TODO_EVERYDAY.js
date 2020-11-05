@@ -150,7 +150,7 @@ var dfs = (nums, depth, path, usedId, res) => {
 // https://egghead.io/
 
 // 2020/10/10
-//
+// bfs
 var levelOrderBottom = function (root) {
   const res = [];
   var dep = function (node, depth) {
@@ -208,4 +208,4 @@ const temp = (res, path, nums, useId) => {
 // 别人的博客啥的，找找灵感
 // leetcode_num：127
 
-// TODO:cookie, fiber->reconciliation->diff, webgl
+// TODO:cookie, fiber->reconciliation->diff, webgl, tsjson, cors
