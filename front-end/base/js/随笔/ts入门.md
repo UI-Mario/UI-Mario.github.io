@@ -1,3 +1,22 @@
+## ts中的数据类型
+
+暂时不分类了，有些奇形怪状我也不知道怎么分
+
+- number
+- string
+- boolean
+- void
+- null, undefined
+- 数组，类似于这种声明:number[]
+- 元组（在我看来就是数组），这种：[number, string]
+- enum
+- any
+- never
+- object
+- 通过type或interface自己建
+
+## 编译检查
+
 - Typescript只会在编译时对类型进行静态检查，如果发现有错误，编译时会报错。而在运行时，ts与js一样，不会对类型进行检查，所以有如下代码：
 
 ```typescript
@@ -126,7 +145,46 @@ let point: Point = {
 
 ⚠️：存在同名但类型不同的成员时，该成员类型会变成`never`
 
+## namespace
 
+## ReturnType<typeof 000>
 
+## 类
 
+### 私有字段#
+
+在 TypeScript 3.8 版本就开始支持**ECMAScript 私有字段**，使用方式如下：
+
+```
+class Person {
+  #name: string;
+
+  constructor(name: string) {
+    this.#name = name;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.#name}!`);
+  }
+}
+
+let semlinker = new Person("Semlinker");
+
+semlinker.#name;
+//     ~~~~~
+// Property '#name' is not accessible outside class 'Person'
+// because it has a private identifier.
+复制代码
+```
+
+与常规属性（甚至使用 `private` 修饰符声明的属性）不同，私有字段要牢记以下规则：
+
+- 私有字段以 `#` 字符开头，有时我们称之为私有名称；
+- 每个私有字段名称都唯一地限定于其包含的；
+- 不能在私有字段上使用 TypeScript 可访问性修饰符（如 public 或 private）；
+- 私有字段不能在包含的类之外访问，甚至不能被检测到。
+
+# 泛型
+
+# 装饰器decorator
 
