@@ -1,3 +1,5 @@
+> 推荐学习：[卡颂大佬🧍‍♂️](https://react.iamkasong.com/preparation/idea.html#react%E7%90%86%E5%BF%B5)
+
 # 跟vue相比咋样？
 
 - 本质区别：react只是libray，而不是framework（这句话是react自己说的，虽然不太懂这是啥意思）
