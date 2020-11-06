@@ -208,7 +208,8 @@ const temp = (res, path, nums, useId) => {
 // 别人的博客啥的，找找灵感
 // leetcode_num：127
 
-// TODO:cookie, fiber->reconciliation->diff, webgl, tsjson, cors
+// TODO:cookie, fiber->reconciliation->diff, webgl, tsjson, cors, ts装饰器
+// md怎么这么多要学
 
 
 // 2020/11/6 开始手写，争取每天一个
