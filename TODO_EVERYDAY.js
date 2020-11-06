@@ -210,3 +210,6 @@ const temp = (res, path, nums, useId) => {
 
 // TODO:cookie, fiber->reconciliation->diff, webgl, tsjson, cors
 
+
+// 2020/11/6 开始手写，争取每天一个
+
