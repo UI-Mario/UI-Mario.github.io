@@ -6,6 +6,8 @@
 
 [IEEE754](./front-end/base/js/js高级程序设计/IEEE754.md)
 
+[手写系列](./front-end/base/js/js高级程序设计/手写系列.md)
+
 ## browser
 
 ## engineering
