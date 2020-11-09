@@ -254,3 +254,30 @@ const dfs = (res, target, candidates, combine, start) => {
   }
   dfs(res, target, candidates, combine, start + 1);
 };
+
+// 还是39，睡觉前灵机一闪，好像把场子找回来了
+// 但是又被40题教育了，虽然做出来了，但是5%的排名。。。
+var combinationSum = function (candidates, target) {
+  const res = [];
+  const path = [];
+  temp(res, path, candidates, target, 0);
+  return res;
+};
+
+const getSum = (nums) => {
+  return nums.reduce((prev, cur) => prev + cur, 0);
+};
+
+const temp = (res, path, candidates, target, start) => {
+  if (getSum(path) === target) {
+    res.push([...path]);
+    return;
+  }
+  if (target - getSum(path) - candidates[start] >= 0) {
+    path.push(candidates[start]);
+    temp(res, path, candidates, target, start);
+    path.pop();
+  }
+  start + 1 < candidates.length &&
+    temp(res, path, candidates, target, start + 1);
+};
