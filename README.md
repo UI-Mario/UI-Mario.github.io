@@ -36,3 +36,10 @@
 
 
 # hobby
+
+
+# 随笔
+
+[git commit规范](./tools/git_commit规范.md)
+
+[git常用操作](./tools/git常用操作.md)
