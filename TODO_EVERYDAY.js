@@ -230,3 +230,27 @@ const temp = (res, path, nums, useId) => {
 
 // 2020/11/6 开始手写，争取每天一个
 
+// TODO:fiber->reconciliation->diff, webgl, cors, ts装饰器
+
+// TODO:39，看懂了，但还是需要慢慢消化
+// FIXME:在接着刷40的时候发现了39下列代码的大锅，当我没说过上述的话
+var combinationSum2 = function (candidates, target) {
+  const res = [];
+  dfs(res, target, candidates, [], 0);
+  return res;
+};
+// 可以这么认为，其实是每个排列，只能添加，排列头部数字后面的数字（例如candidates[2,3,6,7]，某个排列以6开头，则只能添加7）
+// 但是可以不断添加自己
+const dfs = (res, target, candidates, combine, start) => {
+  if (target === 0) {
+    res.push([...combine]);
+    return;
+  }
+  if (start === candidates.length) {
+    return;
+  }
+  if (target - candidates[start] >= 0) {
+    dfs(res, target - candidates[start], candidates, [...combine, candidates[start]], start);
+  }
+  dfs(res, target, candidates, combine, start + 1);
+};
