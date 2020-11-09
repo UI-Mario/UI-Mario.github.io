@@ -150,7 +150,7 @@ var dfs = (nums, depth, path, usedId, res) => {
 // https://egghead.io/
 
 // 2020/10/10
-// bfs
+// dfs构建的bfs
 var levelOrderBottom = function (root) {
   const res = [];
   var dep = function (node, depth) {
@@ -162,6 +162,22 @@ var levelOrderBottom = function (root) {
   };
   dep(root, 0);
   return res.reverse();
+};
+
+// 不使用递归的dfs，TODO:还不太理解，移步leetcode的动画演示：https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/er-cha-shu-de-zhong-xu-bian-li-by-leetcode-solutio/
+var inorderTraversal = function(root) {
+  const res = [];
+  const stk = [];
+  while (root || stk.length) {
+      while (root) {
+          stk.push(root);
+          root = root.left;
+      }
+      root = stk.pop();
+      res.push(root.val);
+      root = root.right;
+  }
+  return res;
 };
 
 // string -> 整数
