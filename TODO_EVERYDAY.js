@@ -281,3 +281,39 @@ const temp = (res, path, candidates, target, start) => {
     temp(res, path, candidates, target, start + 1);
 };
 // 但是又被40题教育了，虽然做出来了，但是5%的排名。。。
+// 耗尽心力改成了10%，如下
+var combinationSum2 = function (candidates, target) {
+  const res = [];
+  const path = [];
+  const last_path = [];
+  candidates.sort((a, b) => a - b);
+  // [1,2,2,2,3,5]
+  temp(res, path, last_path, candidates, target, 0);
+  return res;
+};
+
+const getSum = (nums) => {
+  return nums.reduce((prev, cur) => prev + cur, 0);
+};
+
+const temp = (res, path, last_path, candidates, target, start) => {
+  if (getSum(path) === target) {
+    res.push([...path]);
+    return;
+  }
+  for (var i = start; i < candidates.length; i++) {
+    if (
+      candidates[i] &&
+      candidates[i - 1] &&
+      candidates[i] === candidates[i - 1] &&
+      JSON.stringify([...path, candidates[i]]) === JSON.stringify(last_path)
+    )
+      continue;
+    if (target - getSum(path) - candidates[i] >= 0) {
+      path.push(candidates[i]);
+      last_path = [...path];
+      temp(res, path, last_path, candidates, target, i + 1);
+      path.pop();
+    }
+  }
+};
