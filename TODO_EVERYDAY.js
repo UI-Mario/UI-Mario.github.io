@@ -321,3 +321,6 @@ const temp = (res, path, last_path, candidates, target, start) => {
 // TODO:fiber->reconciliation->diff, webgl, cors, ts装饰器
 // 修改目标，这段时间还是先看js手写和运用react库或是webpack吧，源码先放放
 // 没有技术积累感觉顺序不对
+// TODO:Unicode, ASCII --------- y
+// 读完了，没必要做笔记，建议阅读阮一峰大佬：http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
+
