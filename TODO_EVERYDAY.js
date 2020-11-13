@@ -324,3 +324,14 @@ const temp = (res, path, last_path, candidates, target, start) => {
 // TODO:Unicode, ASCII --------- y
 // 读完了，没必要做笔记，建议阅读阮一峰大佬：http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
 
+// TODO:
+// fiber->reconciliation->diff, 
+// webgl/three.js
+// cors, 
+// ts装饰器
+// NODE_ENV怎么挂在process.env上的
+// react portal
+// useful article: https://www.zhihu.com/question/20790576/answer/32602154
+
+// 持续目标：树，图，react相关源码，最近说实话有点迷茫和懈怠
+
