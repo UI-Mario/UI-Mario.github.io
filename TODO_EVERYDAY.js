@@ -318,16 +318,16 @@ const temp = (res, path, last_path, candidates, target, start) => {
   }
 };
 
-// TODO:fiber->reconciliation->diff, webgl, cors, ts装饰器
+// fiber->reconciliation->diff, webgl, cors, ts装饰器
 // 修改目标，这段时间还是先看js手写和运用react库或是webpack吧，源码先放放
 // 没有技术积累感觉顺序不对
-// TODO:Unicode, ASCII --------- y
+// Unicode, ASCII --------- y
 // 读完了，没必要做笔记，建议阅读阮一峰大佬：http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
 
 // TODO:
 // fiber->reconciliation->diff, 
 // webgl/three.js
-// cors, 
+// cors, 就是面向面试的资料整理，😡
 // ts装饰器
 // NODE_ENV怎么挂在process.env上的
 // react portal
@@ -335,4 +335,5 @@ const temp = (res, path, last_path, candidates, target, start) => {
 
 // 持续目标：树，图，react相关源码，最近说实话有点迷茫和懈怠
 
-https://overreacted.io/zh-hans/why-do-hooks-rely-on-call-order/
+// https://overreacted.io/zh-hans/why-do-hooks-rely-on-call-order/
+
