@@ -12,9 +12,11 @@
 
 ## engineering
 
+[redux](./front-end/frame/react/redux.md)
+
 ## frame
 
-[redux](./front-end/frame/react/redux.md)
+[type of dependency](./front-end/engineering/packageJson_dependencies.md)
 
 ## node
 
