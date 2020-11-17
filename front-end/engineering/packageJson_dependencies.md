@@ -8,25 +8,10 @@
 - optionaldependencies
 - bundleddependencies
 
-
-
-================================================
-
-｜                                                 A                                               ｜
-
-｜                                                                                                   ｜
-
-｜                                                                                                   ｜
-
-｜                                ================                                ｜
-
-｜                                |               B               |                              ｜
-
-｜                                |                                 |                              ｜
-
-｜                                ================                                ｜
-
-================================================
+<div style="width: 100px;height: 100px;background-color: bisque;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+      A
+      <div style="width: 40px;height: 40px;background-color: beige;display: flex;justify-content: center;align-items: center;">B</div>
+    </div>
 
 # dependencies
 
@@ -48,9 +33,9 @@
 
 **question:**
 
-- peerdependencies里的第三方库能否自己使用？
+- `peerdependencies`里的第三方库能否自己使用？
 - 三方库版本啥的起冲突咋办？
-- 是否会主动下载peerdependencies里的三方库？
+- 是否会主动下载`peerdependencies`里的三方库？
 
 # optionaldependencies
 
