@@ -1,3 +1,5 @@
+> 推荐[hand book](https://www.typescriptlang.org/docs/handbook/basic-types.html)
+
 ## ts中的数据类型
 
 暂时不分类了，有些奇形怪状我也不知道怎么分
@@ -7,11 +9,12 @@
 - boolean
 - void
 - null, undefined
-- 数组，类似于这种声明:number[]
-- 元组（在我看来就是数组），这种：[number, string]
+- Array数组，类似于这种声明:number[]
+- Tuple元组（在我看来就是数组），这种：[number, string]
 - enum
 - any
-- never
+- Unknown：就，真不知道这玩意，大多数手册上也没有你敢信
+- never，看本文中的🌰
 - object
 - 通过type或interface自己建
 
@@ -127,7 +130,24 @@ console.log(greeter2.greet());// 'hey'
 
 ## never
 
-抛出异常或者根本没法结束执行，暂时我也很迷这是干啥的
+抛出异常或者根本没法结束执行，暂时我也很迷这是干啥的，直接上🌰
+
+```
+// Function returning never must not have a reachable end point
+function error(message: string): never {
+  throw new Error(message);
+}
+
+// Inferred return type is never
+function fail() {
+  return error("Something failed");
+}
+
+// Function returning never must not have a reachable end point
+function infiniteLoop(): never {
+  while (true) {}
+}
+```
 
 ## &类型合并运算符
 
@@ -187,4 +207,12 @@ semlinker.#name;
 # 泛型
 
 # 装饰器decorator
+
+# mixins
+
+# interface or type?
+
+> https://www.typescriptlang.org/docs/handbook/advanced-types.html
+
+interface和type都可以用来声明数据结构，但是interface是可以拓展的，type会error：Duplicate
 
