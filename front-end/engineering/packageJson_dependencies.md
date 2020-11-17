@@ -13,6 +13,8 @@
       <div style="width: 40px;height: 40px;background-color: beige;display: flex;justify-content: center;align-items: center;">B</div>
     </div>
 
+（github上不支持这么写，以后画张图）
+
 # dependencies
 
 跑代码所需的第三方库，像是react，redux，router
@@ -34,8 +36,16 @@
 **question:**
 
 - `peerdependencies`里的第三方库能否自己使用？
+
+可
+
 - 三方库版本啥的起冲突咋办？
+
+好像没怎么比较版本，有就行（也许是我太菜，留个大炕，后面补）:snowboarder:
+
 - 是否会主动下载`peerdependencies`里的三方库？
+
+不会，但是运行时给你报错
 
 # optionaldependencies
 
