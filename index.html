@@ -1,22 +1,38 @@
-
 <html>
   <head>
     <title>Reconstructing ...</title>
   </head>
   <body>
-    <h1>
-      Reconstructing ...
-    </h1>  
+    <div id="money">
+      <h1>Reconstructing ...</h1>
+    </div>
   </body>
   <style type="text/css">
     body {
-      background-color: #d3217b;
+      background-color: coral;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-family: monospace;
       font-size: 2em;
     }
+    #money {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      background-image: url("./resource/money.png"),url("./resource/money.png");
+      background-size: 150px;
+      height: 100%;
+      width: 100%;
+      animation: money 2000s linear infinite;
+      transform: translate(0, 0);
+    }
+    @keyframes money {
+      0% {
+        background-position: 0px 0px, 0px 0px, 0px 0px;
+      }
+      100% {
+        background-position: 50000px 50000px, 10000px 20000px, -10000px 15000px;
+      }
+    }
   </style>
-  </html>
+</html>
