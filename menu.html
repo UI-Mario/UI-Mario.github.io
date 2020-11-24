@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jjj</title>
+    <style type="text/css">
+      body {
+        background-color: #bcbcbc;
+      }
+/*      header {
+        position: fixed;
+        width: 100%;
+        z-index: 2;
+      }*/
+/*      nav {
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+        margin-top: 5%;
+        top: 0;
+        right: 0;
+      }
+      #navmenu {
+        transform: translate(100%, 0);
+        -webkit-transition: all 0.3s !important;
+        transition: all 0.3s !important;
+        background: white;
+      }
+      #navmenu p {
+        margin-top: 10px;
+      }*/
+      /* -- nav animation
+ --- --- ---- --- */
+      .menu-button {
+        width: 30px;
+        height: 30px;
+        display: block;
+        position: absolute;
+        right: 14px;
+        top: 15px;
+      }
+      .menu-button i {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 3px;
+        background: #fff;
+        -webkit-transition: background 0.5s;
+        transition: background 0.5s;
+        position: relative;
+        left: 5px;
+        top: 14px;
+      }
+      .menu-button i:before,
+      .menu-button i:after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 3px;
+        background: #fff;
+        position: absolute;
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: all 0.3s !important;
+        transition: all 0.3s !important;
+      }
+      .menu-button i:before {
+        -webkit-transform: translateY(8px);
+        -ms-transform: translateY(8px);
+        transform: translateY(8px);
+      }
+      .menu-button i:after {
+        -webkit-transform: translateY(-8px);
+        -ms-transform: translateY(-8px);
+        transform: translateY(-8px);
+      }
+
+      .menu-button.on i {
+        background: #bcbcbc;
+      }
+      .menu-button.on i:before {
+        -webkit-transform: translateY(0px) rotate(45deg);
+        -ms-transform: translateY(0px) rotate(45deg);
+        transform: translateY(0px) rotate(45deg);
+      }
+      .menu-button.on i:after {
+        -webkit-transform: translateY(0px) rotate(-45deg);
+        -ms-transform: translateY(0px) rotate(-45deg);
+        transform: translateY(0px) rotate(-45deg);
+      }
+/*      #navmenu.on {
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        transform: translate(0, 0);
+      }*/
+    </style>
+    <script type="text/javascript">
+        // var nav ;
+        window.onload = function loadAct(e) {
+          document
+            .getElementById("navbtn")
+            .addEventListener("click", toogleNav, false);
+        };
+        function toogleNav(e) {
+          document.getElementById("navbtn").classList.toggle("on");
+          // document.getElementById("navmenu").classList.toggle("on");
+        }
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <div class="menu-button" id="navbtn"><i></i></div>
+    </header>
+  <!--   <nav>
+      <div class="col-xs-offset-3 col-xs-9" id="navmenu">
+        <p>Lorem ipsum</p>
+        <p>dolor sit</p>
+        <p>consectetur</p>
+        <p>adipisicing</p>
+        <p>elit.</p>
+      </div>
+    </nav> -->
+  </body>
+</html>

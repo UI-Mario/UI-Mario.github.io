@@ -44,9 +44,7 @@
 
 - 其他，reducer拆分，中间件（异步）啥的，请见[阮一峰：Redux 入门教程（二）：中间件与异步操作](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html)
 
-有关redux的介绍这里就不再赘述，阮一峰老师讲解的很好，这里也列出一些基础例子供初学者参考
-
-- 
+有关redux的介绍这里就不再赘述，阮一峰老师讲解的很好，想看一些精简demo请移步[redux源码](https://github.com/reduxjs/redux)，上面不仅贴了各类examples还有疑难解答甚至心路历程，是我碰到过的最亲切的源码了:book:
 
 想要了解redux起源的同学可以去参考flux或是github上开发者资料，例如这哥们[acdlite](https://github.com/acdlite)
 
@@ -54,4 +52,32 @@
 
 枯燥过程开始:weary:，还是前面抄的爽
 
-fork源码进行逐行分析
+fork源码进行逐行分析，这里列出一些faq
+
+`src/index.ts:`
+
+```typescript
+/*
+ * This is a dummy function to check if the function name has been altered by minification.
+ * If the function has been minified and NODE_ENV !== 'production', warn the user.
+ */
+function isCrushed() {}
+
+if (
+  process.env.NODE_ENV !== 'production' &&
+  typeof isCrushed.name === 'string' &&
+  isCrushed.name !== 'isCrushed'
+) {
+  warning(
+    'You are currently using minified code outside of NODE_ENV === "production". ' +
+      'This means that you are running a slower development build of Redux. ' +
+      'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' +
+      'or setting mode to production in webpack (https://webpack.js.org/configuration/mode/) ' +
+      'to ensure you have the correct code for your production build.'
+  )
+}
+```
+
+emm，具体涉及代码压缩啥的，我个人还是比较好奇`isCrushed.name`是哪来的
+
+<img src="../../../resource/func_prototype.png" style="zoom: 50%;" />
