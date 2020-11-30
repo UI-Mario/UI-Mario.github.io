@@ -339,7 +339,7 @@ const temp = (res, path, last_path, candidates, target, start) => {
 
 // TODO:
 // ts:infer,decorator,namespace,<U,T>
-// react-----source code
+// react-----source code, lifecircle, hook to imitate lifecircle
 // redux-----source code
 // react-redux---source code
 // webgl

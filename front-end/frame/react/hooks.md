@@ -35,5 +35,14 @@
 >
 > 若要从服务端渲染的 HTML 中排除依赖布局 effect 的组件，可以通过使用 `showChild && <Child />` 进行条件渲染，并使用 `useEffect(() => { setShowChild(true); }, [])` 延迟展示组件。这样，在客户端渲染完成之前，UI 就不会像之前那样显示错乱了。
 
+# 生命周期方法要如何对应到 Hook？
 
+- `constructor`：函数组件不需要构造函数。你可以通过调用 [`useState`](https://react.docschina.org/docs/hooks-reference.html#usestate) 来初始化 state。如果计算的代价比较昂贵，你可以传一个函数给 `useState`。
+- `getDerivedStateFromProps`：改为 [在渲染时](https://react.docschina.org/docs/hooks-faq.html#how-do-i-implement-getderivedstatefromprops) 安排一次更新。
+- `shouldComponentUpdate`：详见 [下方](https://react.docschina.org/docs/hooks-faq.html#how-do-i-implement-shouldcomponentupdate) `React.memo`.
+- `render`：这是函数组件体本身。
+- `componentDidMount`, `componentDidUpdate`, `componentWillUnmount`：[`useEffect` Hook](https://react.docschina.org/docs/hooks-reference.html#useeffect) 可以表达所有这些(包括 [不那么](https://react.docschina.org/docs/hooks-faq.html#can-i-skip-an-effect-on-updates) [常见](https://react.docschina.org/docs/hooks-faq.html#can-i-run-an-effect-only-on-updates) 的场景)的组合。
+- `getSnapshotBeforeUpdate`，`componentDidCatch` 以及 `getDerivedStateFromError`：目前还没有这些方法的 Hook 等价写法，但很快会被添加。
+
+# useState是否和setState一样，存在链式更新（盲猜没有，）
 

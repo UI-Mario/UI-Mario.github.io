@@ -316,3 +316,4 @@ function MyComponent() {
 }
 ```
 
+# useState是否和setState一样，存在链式更新？
