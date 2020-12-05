@@ -1,43 +1,33 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var MyPromiseAncestor = /** @class */ (function () {
-    function MyPromiseAncestor() {
-    }
-    MyPromiseAncestor.then = function () { };
-    MyPromiseAncestor["catch"] = function () { };
-    MyPromiseAncestor["finally"] = function () { };
-    return MyPromiseAncestor;
-}());
 var Status;
 (function (Status) {
     Status["PENDING"] = "PENDING";
     Status["FULFILLED"] = "FULFILLED";
     Status["REJECTED"] = "REJECTED";
 })(Status || (Status = {}));
-var MyPromise = /** @class */ (function (_super) {
-    __extends(MyPromise, _super);
+var MyPromise = /** @class */ (function () {
     function MyPromise(exector) {
-        var _this = _super.call(this) || this;
-        _this.status = Status.PENDING;
+        var _this = this;
+        // 下面这俩主要是为了异步
+        this._resolveQueue = []; // resolve时触发的成功队列
+        this._rejectQueue = []; // reject时触发的失败队列
+        this.status = Status.PENDING;
         var resolve = function (success_value) {
             _this.status = Status.FULFILLED;
             _this.value = success_value;
+            // 执行resolve回调
+            while (_this._resolveQueue.length) {
+                var callback = _this._resolveQueue.shift();
+                callback(success_value);
+            }
             console.log("resolve", _this.value);
         };
         var reject = function (failed_reason) {
             _this.status = Status.REJECTED;
             _this.reason = failed_reason;
+            while (_this._rejectQueue.length) {
+                var callback = _this._rejectQueue.shift();
+                callback(failed_reason);
+            }
             console.log("reject", _this.reason);
         };
         try {
@@ -46,7 +36,6 @@ var MyPromise = /** @class */ (function (_super) {
         catch (error) {
             reject(error);
         }
-        return _this;
     }
     MyPromise.all = function () {
         console.log("this is all");
@@ -57,9 +46,54 @@ var MyPromise = /** @class */ (function (_super) {
     MyPromise.resolve = function () { };
     MyPromise.reject = function () { };
     MyPromise["try"] = function () { };
-    MyPromise.prototype.noStaticOnlyInstance = function () { };
+    // 本来then、catch、finally是prototype上的方法，就想着继承过来算了
+    // 结果要跟status挂钩，还是就在这写了
+    MyPromise.prototype.then = function (onFulfilled, onRejected) {
+        var _this = this;
+        // promise A+规定这俩传入的函数必须异步执行
+        // 根据规范，如果then的参数不是function，则忽略它, 让值继续往下传递，链式调用继续往下执行
+        typeof onFulfilled !== "function" ? (onFulfilled = function (value) { return value; }) : null;
+        typeof onRejected !== "function" ? (onRejected = function (error) { return error; }) : null;
+        return new MyPromise(function (resolve, reject) {
+            var resolveFn = function (value) {
+                try {
+                    var x = onFulfilled(value);
+                    // TODO:
+                    // 分类讨论返回值,如果是Promise,那么等待Promise状态变更,否则直接resolve
+                    x instanceof MyPromise ? x.then(resolve, reject) : resolve(x);
+                }
+                catch (error) {
+                    reject(error);
+                }
+            };
+            var rejectFn = function (error) {
+                try {
+                    var x = onRejected(error);
+                    x instanceof MyPromise ? x.then(resolve, reject) : resolve(x);
+                }
+                catch (error) {
+                    reject(error);
+                }
+            };
+            switch (_this.status) {
+                case Status.PENDING:
+                    _this._resolveQueue.push(onFulfilled);
+                    _this._rejectQueue.push(onRejected);
+                    break;
+                case Status.FULFILLED:
+                    // 这里的value就是resolve里边的success_value
+                    resolveFn(_this.value);
+                    break;
+                case Status.REJECTED:
+                    rejectFn(_this.reason);
+                    break;
+            }
+        });
+    };
+    MyPromise.prototype["catch"] = function () { };
+    MyPromise.prototype["finally"] = function () { };
     return MyPromise;
-}(MyPromiseAncestor));
+}());
 new MyPromise(function (resolve, reject) {
     if (6 > 5) {
         resolve([1, 2, 3]);
@@ -67,6 +101,17 @@ new MyPromise(function (resolve, reject) {
     else {
         reject(4);
     }
+}).then(function (res) {
+    new MyPromise(function (resolve, reject) {
+        if (6 > 5) {
+            resolve([4, 5, 6]);
+        }
+        else {
+            reject(99);
+        }
+    });
+}).then(function (res) {
+    console.log(res);
 });
 console.log(MyPromise.prototype);
 // new MyPromise((resolve, reject) => {
