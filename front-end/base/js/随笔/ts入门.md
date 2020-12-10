@@ -132,6 +132,10 @@ console.log(greeter2.greet());// 'hey'
 
 抛出异常或者根本没法结束执行，暂时我也很迷这是干啥的，直接上🌰
 
+实际上，`void` 表示没有任何类型，`never` 表示永远不存在的值的类型。
+
+当一个函数没有返回值时，它返回了一个 `void` 类型，但是，当一个函数根本就没有返回值时（或者总是抛出错误），它返回了一个 `never`，`void` 指可以被赋值的类型（在 `strictNullChecking` 为 false 时），其他任何类型不能赋值给 `never`，除了 `never` 本身以外。
+
 ```
 // Function returning never must not have a reachable end point
 function error(message: string): never {
@@ -173,7 +177,7 @@ let point: Point = {
 
 ### 私有字段#
 
-在 TypeScript 3.8 版本就开始支持**ECMAScript 私有字段**，使用方式如下：
+不同于private，在 TypeScript 3.8 版本就开始支持**ECMAScript 私有字段**，使用方式如下：
 
 ```
 class Person {

@@ -338,7 +338,7 @@ const temp = (res, path, last_path, candidates, target, start) => {
 // https://overreacted.io/zh-hans/why-do-hooks-rely-on-call-order/
 
 // TODO:
-// ts:infer,decorator,namespace,<U,T>
+// ts:infer,decorator,<U,T>
 // react-----source code, lifecircle, hook to imitate lifecircle
 // redux-----source code
 // react-redux---source code
