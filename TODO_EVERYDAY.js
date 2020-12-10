@@ -165,17 +165,17 @@ var levelOrderBottom = function (root) {
 };
 
 // 不使用递归的dfs，TODO:还不太理解，移步leetcode的动画演示：https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/er-cha-shu-de-zhong-xu-bian-li-by-leetcode-solutio/
-var inorderTraversal = function(root) {
+var inorderTraversal = function (root) {
   const res = [];
   const stk = [];
   while (root || stk.length) {
-      while (root) {
-          stk.push(root);
-          root = root.left;
-      }
-      root = stk.pop();
-      res.push(root.val);
-      root = root.right;
+    while (root) {
+      stk.push(root);
+      root = root.left;
+    }
+    root = stk.pop();
+    res.push(root.val);
+    root = root.right;
   }
   return res;
 };
@@ -227,7 +227,6 @@ const temp = (res, path, nums, useId) => {
 // TODO:cookie, fiber->reconciliation->diff, webgl, tsjson, cors, ts装饰器
 // md怎么这么多要学
 
-
 // 2020/11/6 开始手写，争取每天一个
 
 // TODO:fiber->reconciliation->diff, webgl, cors, ts装饰器
@@ -250,7 +249,13 @@ const dfs = (res, target, candidates, combine, start) => {
     return;
   }
   if (target - candidates[start] >= 0) {
-    dfs(res, target - candidates[start], candidates, [...combine, candidates[start]], start);
+    dfs(
+      res,
+      target - candidates[start],
+      candidates,
+      [...combine, candidates[start]],
+      start
+    );
   }
   dfs(res, target, candidates, combine, start + 1);
 };
@@ -325,7 +330,7 @@ const temp = (res, path, last_path, candidates, target, start) => {
 // 读完了，没必要做笔记，建议阅读阮一峰大佬：http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
 
 // TODO:
-// fiber->reconciliation->diff, 
+// fiber->reconciliation->diff,
 // webgl/three.js
 // cors, 就是面向面试的资料整理，😡
 // ts装饰器
@@ -344,3 +349,4 @@ const temp = (res, path, last_path, candidates, target, start) => {
 // react-redux---source code
 // webgl
 // webpack
+
