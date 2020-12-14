@@ -348,5 +348,36 @@ const temp = (res, path, last_path, candidates, target, start) => {
 // redux-----source code
 // react-redux---source code
 // webgl
-// webpack
 
+const myThrottle = (fn, time) => {
+  let isRunning = false;
+  return () => {
+    if (!isRunning) {
+      isRunning = true;
+      setTimeout(() => {
+        fn();
+        isRunning = false;
+      }, time);
+    }
+  };
+};
+
+const myDebounce = (fn, time) => {
+  let timer = null;
+  return () => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn();
+    }, time);
+  };
+};
+
+const shuffle = (arr) => {
+  if (arr.length === 0) return [];
+  const random_index = Math.floor(Math.random() * arr.length);
+  console.log(arr);
+  const random_item = arr.splice(random_index, 1);
+  return [random_item, ...shuffle(arr)];
+};
+
+console.log(shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]));
