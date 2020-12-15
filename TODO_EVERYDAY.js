@@ -425,3 +425,7 @@ const callbackFn = (accumulator, currentValue) => {
 console.log(myReduce([1], (a, b) => a + b, 100));
 
 console.log([1].reduce((a, b) => a + b, 100));
+
+// 浏览器大荟萃：https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
+
+// 今天可以读的：https://github.com/lf2021/Front-End-Interview/blob/master/01.%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8.md
