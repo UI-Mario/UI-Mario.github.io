@@ -349,6 +349,8 @@ const temp = (res, path, last_path, candidates, target, start) => {
 // react-redux---source code
 // webgl
 
+// 节流
+// 运行完了才能继续运行下一个
 const myThrottle = (fn, time) => {
   let isRunning = false;
   return () => {
@@ -362,6 +364,8 @@ const myThrottle = (fn, time) => {
   };
 };
 
+// 防抖
+// 要是持续触发会持续更新定时器
 const myDebounce = (fn, time) => {
   let timer = null;
   return () => {
@@ -372,6 +376,9 @@ const myDebounce = (fn, time) => {
   };
 };
 
+// 洗牌算法
+// 忘了叫啥，意思是从未处理的数组中随机抽取，添加到新数组
+// 直到抽完
 const shuffle = (arr) => {
   if (arr.length === 0) return [];
   const random_index = Math.floor(Math.random() * arr.length);
@@ -381,3 +388,40 @@ const shuffle = (arr) => {
 };
 
 console.log(shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+
+// reduce
+// 非严格按照标准来
+// 目前只是按着自己理解写的，大体上没啥问题
+const myReduce = (arr, callbackFn, initialValue) => {
+  if (arr.length === 0) throw new Error("empty array");
+  if (arr.length === 1) {
+    if (initialValue) {
+      return callbackFn(initialValue, arr[0]);
+    } else {
+      return arr[0];
+    }
+  }
+
+  var accumulator = null;
+  var index = null;
+  if (initialValue) {
+    accumulator = initialValue;
+    index = 0;
+  } else {
+    accumulator = arr[0];
+    index = 1;
+  }
+  for (var i = index; i < arr.length; i++) {
+    accumulator = callbackFn(accumulator, arr[i]);
+  }
+  return accumulator;
+};
+
+const callbackFn = (accumulator, currentValue) => {
+  return accumulator + currentValue;
+};
+
+console.log(myReduce([1], (a, b) => a + b, 100));
+
+console.log([1].reduce((a, b) => a + b, 100));
