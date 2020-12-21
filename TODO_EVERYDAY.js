@@ -429,3 +429,28 @@ console.log([1].reduce((a, b) => a + b, 100));
 // 浏览器大荟萃：https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/
 
 // 今天可以读的：https://github.com/lf2021/Front-End-Interview/blob/master/01.%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8.md
+
+// TODO:AMD, CMD, ...
+
+// call stack, memory heap, run-time:
+// https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf
+
+// event loop
+// https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5
+// 当call stack is clear， 从callback queue/event queue拿东西放进call stack
+// 当然，es6的promise出现后，queue就分为microtask和macrotask了，或者叫job啥的，贼乱
+// Rendering never happens while the engine executes a task. It doesn’t matter 
+// if the task takes a long time. Changes to the DOM are painted only after the task is complete.
+// TODO:意思是否就是，setTimeout的时间点对应的事件是什么呢？它也非要等call stack空了才能放进去吗？
+
+
+// TODO:
+// Net:
+// - 3握4挥
+// - 从上往下特点、优缺点、版本
+// Algorithms:
+// - dynamic
+// Frame:
+// - react event, redux, 
+// JS:
+// - prototype, create Class, typescript

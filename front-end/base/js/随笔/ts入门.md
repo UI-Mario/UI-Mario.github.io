@@ -132,9 +132,28 @@ console.log(greeter2.greet());// 'hey'
 
 抛出异常或者根本没法结束执行，暂时我也很迷这是干啥的，直接上🌰
 
-实际上，`void` 表示没有任何类型，`never` 表示永远不存在的值的类型。
+算了，其他的中文解释有点半桶水，听起来贼绕，还是英语来一遍
 
-当一个函数没有返回值时，它返回了一个 `void` 类型，但是，当一个函数根本就没有返回值时（或者总是抛出错误），它返回了一个 `never`，`void` 指可以被赋值的类型（在 `strictNullChecking` 为 false 时），其他任何类型不能赋值给 `never`，除了 `never` 本身以外。
+> The void type can have undefined or null as a value where as never cannot have any value.
+
+emm，ok
+
+```
+
+const func_void = ():void => {};
+const func_never = ():never => {
+  throw new Error('this is never');
+  
+};
+
+const res_void = func_void()
+// console res_never = func_never() // 报错
+console.log(res_void)               // undefined
+
+
+```
+
+以下是never的一些应用场景
 
 ```
 // Function returning never must not have a reachable end point
