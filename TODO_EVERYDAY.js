@@ -389,7 +389,6 @@ const shuffle = (arr) => {
 
 console.log(shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
-
 // reduce
 // 非严格按照标准来
 // 目前只是按着自己理解写的，大体上没啥问题
@@ -439,10 +438,9 @@ console.log([1].reduce((a, b) => a + b, 100));
 // https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5
 // 当call stack is clear， 从callback queue/event queue拿东西放进call stack
 // 当然，es6的promise出现后，queue就分为microtask和macrotask了，或者叫job啥的，贼乱
-// Rendering never happens while the engine executes a task. It doesn’t matter 
+// Rendering never happens while the engine executes a task. It doesn’t matter
 // if the task takes a long time. Changes to the DOM are painted only after the task is complete.
 // TODO:意思是否就是，setTimeout的时间点对应的事件是什么呢？它也非要等call stack空了才能放进去吗？
-
 
 // TODO:
 // Net:
@@ -451,6 +449,51 @@ console.log([1].reduce((a, b) => a + b, 100));
 // Algorithms:
 // - dynamic
 // Frame:
-// - react event, redux, 
+// - react event, lifecircle redux,
 // JS:
 // - prototype, create Class, typescript
+// Web:
+// - cookie, localstorage, session...
+// https://juejin.cn/post/6908698827033837575#heading-18
+// - 浏览器渲染流程
+// 手写:new, extends, this, promise, clone
+// - new:
+// -- new就是那一个函数作为构造函数，原型链绑上，this绑上，没有返回对象就返回this
+
+// ------------------------------------New---------------------------------------
+function newOperator(func) {
+  const obj = Object.create(func.prototype);
+  // 这种写法就不能用箭头函数了
+  const argsArr = [...arguments]
+  argsArr.shift()
+  const result = func.apply(obj, argsArr);
+  if ((typeof result === "object" && result) || typeof result === "function") {
+    return result;
+  } else {
+    return obj;
+  }
+};
+
+// test---------------------------
+function Student(name, age){
+    this.name = name;
+    this.age = age;
+}
+Student.prototype.doSth = function() {
+    return this.name;
+};
+var student1 = newOperator(Student, 'Rose', 18);
+var student2 = newOperator(Student, 'Jack', 18);
+
+console.log('student1', student1.doSth());
+console.log('student2', student2.doSth());
+
+console.log(student1.__proto__ === Student.prototype); // true
+console.log(student2.__proto__ === Student.prototype); // true
+// __proto__ 是浏览器实现的查看原型方案。
+// 用ES5 则是：
+Object.getPrototypeOf(student1) === Student.prototype; // true
+Object.getPrototypeOf(student2) === Student.prototype; // true
+
+// -------------------------------call, apply, bind-------------------------
+// -------------------------------clone-------------------------
