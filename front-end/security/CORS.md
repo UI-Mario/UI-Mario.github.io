@@ -46,11 +46,23 @@ If any of the information in the response headers does not match the actual para
 
 There are more CORS headers the server may respond with, including ‘Access-Control-Expose-Headers’, ‘Access-Control-Max-Age’, and ‘Access-Control-Allow-Credentials’. Rather than go into too much detail, I would encourage you to take a look at [MDN’s detailed article about CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) (examples of HTTP requests/responses included!) and the meaning of each header.
 
+## cookie攻击手段
+
+xss=>Cross-Site Scripting
+
+[XSS game](https://xss-game.appspot.com/)
+
+crsf
+
 ## 跨域解决方案
+
+> https://juejin.cn/post/6887744164079878151
 
 ### jsonp
 
 ### CORS
+
+Cross-Origin Resource Sharing
 
 ### document.domain + iframe
 
