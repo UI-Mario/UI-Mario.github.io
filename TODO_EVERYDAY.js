@@ -527,10 +527,29 @@ Function.prototype.myCall = function(context, ...args) {
   // 防止覆盖掉原有属性
   // 有意思吧，object除了字符串还可以接受Symbol作为键名
   // 延展思想，set, map, weakSet, weakMap
+  // - set
+  // set可以add基础类型自动规避重复，但是对于引用类型，只是比较指针，不递归比较啥的
+  // 毒瘤NaN也可以被规避
+  // - weakset
+  // 一个感觉没啥用的东西，相比set没有新功能，就是只能放对象
+  // 只有一点需要注意：
+  // 其次，WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，
+  // 也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，
+  // 不考虑该对象还存在于 WeakSet 之中
+  // 其实总结起来一句话：其次，WeakSet的键名所指向的对象，不计入垃圾回收机制。
+  // - map
+  // obj垃圾只能接受string和symbol作为键名，但map啥都行
+  // 但是不幸的是，看代码
+  // const key = {a: 1}
+  // map.set(key, 'value')
+  // map.get(key)  可以成功
+  // map.get({a: 1})  失败
+  // - weakmap
+  // 同weakset，懒得写
   const key = Symbol()
   // 这里的this为需要执行的方法
   // 啥意思，this是sayHello吗，就是在传进来的this对象里挂上了个方法？
-  // TODO:至今还没懂this是个啥，先看看
+  // TODO:至今还没懂this为啥就变成函数了
   context[key] = this 
   // 方法执行
   const result = context[key](...args)
