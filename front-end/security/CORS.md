@@ -50,9 +50,24 @@ There are more CORS headers the server may respond with, including ‘Access-Con
 
 xss=>Cross-Site Scripting
 
+> https://github.com/dwqs/blog/issues/68
+
 [XSS game](https://xss-game.appspot.com/)
 
-crsf
+crsf=>Cross Site Request Forgery
+
+通常情况下，CSRF 攻击是攻击者借助受害者的 Cookie 骗取服务器的信任，可以在受害者毫不知情的情况下以受害者名义伪造请求发送给受攻击服务器，从而在并未授权的情况下执行在权限保护之下的操作。
+
+
+
+1. 防御 XSS 攻击
+   - HttpOnly 防止劫取 Cookie
+   - 用户的输入检查
+   - 服务端的输出检查
+2. 防御 CSRF 攻击
+   - 验证码
+   - Referer Check
+   - Token 验证
 
 ## 跨域解决方案
 

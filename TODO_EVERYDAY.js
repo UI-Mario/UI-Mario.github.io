@@ -456,7 +456,7 @@ console.log([1].reduce((a, b) => a + b, 100));
 // - cookie, localstorage, session...
 // https://juejin.cn/post/6908698827033837575#heading-18
 // - 浏览器渲染流程
-// 手写:new, extends, this, promise, clone
+// 手写:new, extends, this, promise, clone, async,await
 // - new:
 // -- new就是那一个函数作为构造函数，原型链绑上，this绑上，没有返回对象就返回this
 
@@ -496,4 +496,60 @@ Object.getPrototypeOf(student1) === Student.prototype; // true
 Object.getPrototypeOf(student2) === Student.prototype; // true
 
 // -------------------------------call, apply, bind-------------------------
-// -------------------------------clone-------------------------
+// 一通百通，先来看call的用法
+function greet() {
+  this.name = 'greet'
+  this.getName = function() {
+    console.log(this.name);
+  }
+}
+
+var obj = function () {
+  this.name = 'obj'
+}
+
+name = 'window' // 不加var啥的，就挂在了全局上
+
+new greet().getName();
+new greet().getName.call(obj);
+new greet().getName.call();  // 非严格模式指向window、global等全局对象，严格模式下指向null、undefined
+
+// call函数声明：function.call(thisArg, arg1, arg2, ...)
+// 返回值：使用调用者提供的 this 值和参数调用该函数的返回值。若该方法没有返回值，则返回 undefined。
+/**
+ * @description 自定义call实现
+ * @param context   上下文this对象
+ * @param args  动态参数
+ */
+Function.prototype.myCall = function(context, ...args) {
+  // 这里还要分严格模式非严格模式，以及node下全局对象是global，浏览器下是window
+  context = (context instanceof Object ? context : global)
+  // 防止覆盖掉原有属性
+  // 有意思吧，object除了字符串还可以接受Symbol作为键名
+  // 延展思想，set, map, weakSet, weakMap
+  const key = Symbol()
+  // 这里的this为需要执行的方法
+  // 啥意思，this是sayHello吗，就是在传进来的this对象里挂上了个方法？
+  // TODO:至今还没懂this是个啥，先看看
+  context[key] = this 
+  // 方法执行
+  const result = context[key](...args)
+  delete context[key]
+  return result
+}
+
+/**
+ * @description 跟call唯一的差别就在于args参数接受形式不一样，不赘述了
+ * @param {any} context 
+ * @param {any[]} args, 可选的。一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 func 函数
+ */
+Function.prototype.myApply = function(context, args) {
+  context = context instanceof Object ? context : global;
+  const key = Symbol()
+  context[key] = this
+  const result = context[key](...args)
+  delete context[key]
+  return result
+}
+
+// -------------------------------clone--------------------------------------
