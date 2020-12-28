@@ -8,6 +8,8 @@
 
 [手写系列](./front-end/base/js/js高级程序设计/手写系列.md)
 
+[获取对象上的属性](./front-end/base/js/js高级程序设计/property.md)
+
 ## browser
 
 ## engineering

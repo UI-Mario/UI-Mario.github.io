@@ -458,7 +458,7 @@ console.log([1].reduce((a, b) => a + b, 100));
 // - 浏览器渲染流程
 // 手写:new, extends, this, promise, clone, async,await
 // - new:
-// -- new就是那一个函数作为构造函数，原型链绑上，this绑上，没有返回对象就返回this
+// -- new就是那一个函数作为构造函数，原型链绑上，this绑上，构造函数没有返回对象就返回this
 
 // ------------------------------------New---------------------------------------
 function newOperator(func) {
@@ -584,4 +584,16 @@ Function.prototype.myApply = function(context, args) {
 // browser render
 // net
 // amd, cmd...
+
+// 对于objec的own属性(property)，原型链上的属性，可枚举(enumerable)和不可枚举属性
+// https://wsydxiangwang.github.io/web/Object/4.html#%E6%94%B9%E5%8F%98%E5%B1%9E%E6%80%A7%E5%8F%AF%E6%9E%9A%E4%B8%BE%E6%80%A7
+
+
+
+
+
+
+
+
+
 

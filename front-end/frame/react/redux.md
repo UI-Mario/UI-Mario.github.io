@@ -97,7 +97,7 @@ if (
 - length，函数希望接受的命名参数的个数（红宝书p116），???js又不对参数进行检查啥的
 - name，函数名
 - 原型链啥的，作用域啥的，略过
-- [[FunctionLocation]]: VM53:1，emm，在目前我的眼里，啥js引擎、虚拟机、运行时环境统称‘那个’，不知道有没有纠正我错误观念的那天
+- [[FunctionLocation]]: VM53:1，emm，在目前我的眼里，啥js引擎、虚拟机、运行时环境统称‘环境’，不知道有没有纠正我错误观念的那天
 
 <img src="/Users/codemao/MyPrivate/myBlog/UI-Mario.github.io/resource/prototype.jpg" style="zoom:70%;" />
 
@@ -155,7 +155,7 @@ answer：
 
 1.动态语言，函数参数都放在类数组对象里，不定义参数类型，也不检查参数的类型和个数
 
-2.js里函数也是一个对象，所谓的函数签名就是一个指针，不停地换指针只会指向最后一个
+2.js里函数也是一个对象，所谓的函数签名就是一个指针，不与某个具体函数绑定（详见红宝书p110，总结的不太好）
 
 感觉这个问题超级宽泛，深度也有，待我修炼十年再回来一战
 
@@ -210,7 +210,7 @@ export default function compose(...funcs: Function[]) {
 }
 ```
 
-这该死的优雅:love_letter:
+这该死的优雅:love_letter:，看完之后没忍住自己写了个reduce，不知哪有测试可以跑:confused:
 
 ## toString
 
@@ -221,7 +221,7 @@ const randomString = () =>
   Math.random().toString(36).substring(7).split('').join('.')
 ```
 
-也没被镇住，毕竟这文件总共也就几十行。让我在意的是toString这个方法
+这文件总共也就几十行。让我在意的是toString这个方法
 
 js的toString一般是指Object.prototype.toString()，不带参数，但是Number把它重写了，可带参数radix，范围2-36，指定转换的目标进制，超范围抛出RangeError。
 
@@ -333,11 +333,13 @@ const $$observable = /* #__PURE__ */ (() =>
 export default $$observable
 ```
 
-可以分成两段来看，第一段是个知识点，第二段又让我叹了口气
+可以分成两段来看，第一段是个知识点，好歹见过，第二段有点懵
 
 先看第一段[ts:Global Modifing Module](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-modifying-module-d-ts.html)
 
 一般来说这种代码是写在一个.d.ts的文件里，tsconfig里做好设置，`typeRoot`，或是`include`啥的，然后其他地方就可以访问到`Symbol.observable`属性
+
+🌰:
 
 类似问题：
 
