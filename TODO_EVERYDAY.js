@@ -732,3 +732,109 @@ const getFormatObject = (line, time) => {
 };
 
 console.log(getValidNums(a, time_line));
+// 浏览器事件
+
+// cookie, session, localstorage, webstorage, sessionstorage
+// - session, token => https://juejin.cn/post/6906009986149646343#heading-8
+//                     session和token都是为了保持连接的状态所生成的一个签名
+//                     都是由服务端生成，客户端接收保存在cookie或者。。。里
+//                     区别在于，session只是个唯一标识，token是根据用户的信息生成的，
+//                     有JWT(JSON Web Token)规范
+//                     而且token的解密只能由特定服务器进行
+// - webstorage, sessionstorage, localstorage
+//                     webstorage的两种机制：localstorage, sessionstorage
+
+
+
+
+
+
+
+
+
+const threeHoursLater = (date) => {
+  if (!isDateLegal(date)) {
+    throw new Error("range error");
+  }
+  if (isWeekend(date)) {
+    while (isWeekend(date)) {
+      date.setDate(date.getDate() + 1);
+    }
+    date.setHours(12, 0, 0);
+    console.log(date.toLocaleString());
+    return;
+  } else {
+    if (date.getHours() < 8) {
+      date.setHours(12, 0, 0);
+      console.log(date.toLocaleString());
+      return;
+    } else if (date.getHours() < 12) {
+      if (
+        date.getHours() < 9 ||
+        (date.getHours() === 9 &&
+          date.getMinutes() === 0 &&
+          date.getSeconds() === 0)
+      ) {
+        date.setHours(date.getHours() + 3);
+        console.log(date.toLocaleString());
+        return;
+      } else {
+        date.setHours(
+          5 + date.getHours(),
+          date.getMinutes(),
+          date.getSeconds()
+        );
+        console.log(date.toLocaleString());
+        return;
+      }
+    } else if (date.getHours() < 14) {
+      date.setHours(17, 0, 0);
+      console.log(date.toLocaleString());
+      return;
+    } else if (date.getHours() < 18) {
+      if (
+        date.getHours() < 15 ||
+        (date.getHours() === 15 &&
+          date.getMinutes() === 0 &&
+          date.getSeconds() === 0)
+      ) {
+        date.setHours(date.getHours() + 3);
+        console.log(date.toLocaleString());
+        return;
+      } else {
+        date.setDate(date.getDate() + 1);
+        while (isWeekend(date)) {
+          date.setDate(date.getDate() + 1);
+        }
+        date.setHours(8 + date.getHours() - 15);
+        console.log(date.toLocaleString());
+        return;
+      }
+    } else {
+      date.setDate(date.getDate() + 1);
+      date.setHours(8, 0, 0);
+      threeHoursLater(date);
+    }
+  }
+};
+
+const isDateLegal = (date) => {
+  const startDate = new Date("1900-01-01 00:00:00");
+  const endDate = new Date("2050-01-01 00:00:00");
+  return date >= startDate && date <= endDate;
+};
+
+const isWeekend = (date) => {
+  return date.getDay() === 6 || date.getDay() === 0;
+};
+
+threeHoursLater(new Date("2020-03-20 7:23:31"));  // 3/20/2020, 12:00:00 PM
+threeHoursLater(new Date("2020-03-20 8:23:31"));  // 3/20/2020, 11:23:31 AM
+threeHoursLater(new Date("2020-03-20 11:23:31")); // 3/20/2020, 4:23:31 PM
+threeHoursLater(new Date("2020-03-20 12:23:31")); // 3/20/2020, 5:00:00 PM
+threeHoursLater(new Date("2020-03-20 14:23:31")); // 3/20/2020, 5:23:31 PM
+threeHoursLater(new Date("2020-03-20 15:23:31")); // 3/23/2020, 8:23:31 AM
+threeHoursLater(new Date("2020-03-21 8:23:31"));  // 3/23/2020, 12:00:00 PM
+threeHoursLater(new Date("2020-03-22 8:23:31"));  // 3/23/2020, 12:00:00 PM
+threeHoursLater(new Date("2020-03-23 19:23:31")); // 3/24/2020, 11:00:00 AM
+

@@ -6,3 +6,4 @@
 
 一种标记，挂在ReactElement（JSX.Element）上面，通过ref.current可以直接操作react转换后的html element
 
+可控组件和非可控组件的区别就是，dom元素值是否受到react的state控制

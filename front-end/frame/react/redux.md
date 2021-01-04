@@ -99,7 +99,7 @@ if (
 - 原型链啥的，作用域啥的，略过
 - [[FunctionLocation]]: VM53:1，emm，在目前我的眼里，啥js引擎、虚拟机、运行时环境统称‘环境’，不知道有没有纠正我错误观念的那天
 
-<img src="/Users/codemao/MyPrivate/myBlog/UI-Mario.github.io/resource/prototype.jpg" style="zoom:70%;" />
+<img src="../../../resource/prototype.jpg" style="zoom:70%;" />
 
 ## overload
 
@@ -187,7 +187,7 @@ TypeScript 重载的过程是，拿传入的参数和重载的方法签名列表
 
 Question:为什么applyMiddleware要把参数1~5拎出来写？
 
-（不知，删了没跑过测试，求各位大佬告知:cry:）
+（不知，删了没跑过测试，:cry:）
 
 ## chain
 
