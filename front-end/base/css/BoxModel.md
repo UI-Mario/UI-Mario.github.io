@@ -1,0 +1,2 @@
+- IE: content = content + padding + border
+- 标准盒模型: content = content

@@ -165,6 +165,7 @@ var levelOrderBottom = function (root) {
 };
 
 // 不使用递归的dfs，TODO:还不太理解，移步leetcode的动画演示：https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/er-cha-shu-de-zhong-xu-bian-li-by-leetcode-solutio/
+// 结合动画可以理解，动画一忘就不会了
 var inorderTraversal = function (root) {
   const res = [];
   const stk = [];
@@ -464,29 +465,29 @@ console.log([1].reduce((a, b) => a + b, 100));
 function newOperator(func) {
   const obj = Object.create(func.prototype);
   // 这种写法就不能用箭头函数了
-  const argsArr = [...arguments]
-  argsArr.shift()
+  const argsArr = [...arguments];
+  argsArr.shift();
   const result = func.apply(obj, argsArr);
   if ((typeof result === "object" && result) || typeof result === "function") {
     return result;
   } else {
     return obj;
   }
-};
+}
 
 // test---------------------------
-function Student(name, age){
-    this.name = name;
-    this.age = age;
+function Student(name, age) {
+  this.name = name;
+  this.age = age;
 }
-Student.prototype.doSth = function() {
-    return this.name;
+Student.prototype.doSth = function () {
+  return this.name;
 };
-var student1 = newOperator(Student, 'Rose', 18);
-var student2 = newOperator(Student, 'Jack', 18);
+var student1 = newOperator(Student, "Rose", 18);
+var student2 = newOperator(Student, "Jack", 18);
 
-console.log('student1', student1.doSth());
-console.log('student2', student2.doSth());
+console.log("student1", student1.doSth());
+console.log("student2", student2.doSth());
 
 console.log(student1.__proto__ === Student.prototype); // true
 console.log(student2.__proto__ === Student.prototype); // true
@@ -498,21 +499,21 @@ Object.getPrototypeOf(student2) === Student.prototype; // true
 // -------------------------------call, apply, bind-------------------------
 // 一通百通，先来看call的用法
 function greet() {
-  this.name = 'greet'
-  this.getName = function() {
+  this.name = "greet";
+  this.getName = function () {
     console.log(this.name);
-  }
+  };
 }
 
 var obj = function () {
-  this.name = 'obj'
-}
+  this.name = "obj";
+};
 
-name = 'window' // 不加var啥的，就挂在了全局上
+name = "window"; // 不加var啥的，就挂在了全局上
 
 new greet().getName();
 new greet().getName.call(obj);
-new greet().getName.call();  // 非严格模式指向window、global等全局对象，严格模式下指向null、undefined
+new greet().getName.call(); // 非严格模式指向window、global等全局对象，严格模式下指向null、undefined
 
 // call函数声明：function.call(thisArg, arg1, arg2, ...)
 // 返回值：使用调用者提供的 this 值和参数调用该函数的返回值。若该方法没有返回值，则返回 undefined。
@@ -521,9 +522,9 @@ new greet().getName.call();  // 非严格模式指向window、global等全局对
  * @param context   上下文this对象
  * @param args  动态参数
  */
-Function.prototype.myCall = function(context, ...args) {
+Function.prototype.myCall = function (context, ...args) {
   // 这里还要分严格模式非严格模式，以及node下全局对象是global，浏览器下是window
-  context = (context instanceof Object ? context : global)
+  context = context instanceof Object ? context : global;
   // 防止覆盖掉原有属性
   // 有意思吧，object除了字符串还可以接受Symbol作为键名
   // 延展思想，set, map, weakSet, weakMap
@@ -546,35 +547,82 @@ Function.prototype.myCall = function(context, ...args) {
   // map.get({a: 1})  失败
   // - weakmap
   // 同weakset，懒得写
-  const key = Symbol()
+  const key = Symbol();
   // 这里的this为需要执行的方法
   // 啥意思，this是sayHello吗，就是在传进来的this对象里挂上了个方法？
   // TODO:至今还没懂this为啥就变成函数了
-  context[key] = this 
+  context[key] = this;
   // 方法执行
-  const result = context[key](...args)
-  delete context[key]
-  return result
-}
+  const result = context[key](...args);
+  delete context[key];
+  return result;
+};
 
 /**
  * @description 跟call唯一的差别就在于args参数接受形式不一样，不赘述了
- * @param {any} context 
+ * @param {any} context
  * @param {any[]} args, 可选的。一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 func 函数
  */
-Function.prototype.myApply = function(context, args) {
+Function.prototype.myApply = function (context, args) {
   context = context instanceof Object ? context : global;
-  const key = Symbol()
-  context[key] = this
-  const result = context[key](...args)
-  delete context[key]
-  return result
-}
+  const key = Symbol();
+  context[key] = this;
+  const result = context[key](...args);
+  delete context[key];
+  return result;
+};
 
 // bind也不想赘述了，留个空白等待自己瞎想或者后面更好地填补
 
 // -------------------------------clone--------------------------------------
 // 目前只能瞎掰呼递归啥的，lodash没看懂
+// TODO:循环引用问题，之前没有关注，这里引用hash表解决
+
+// 循环引用
+{
+  let obj = { val: 100 };
+  obj.target = obj;
+}
+
+const isObject = (obj) => typeof obj === "object" && obj;
+
+// hash表，默认值为空
+const deepClone = (target, hash = new WeakMap()) => {
+  if (hash.has(target)) {
+    return hash.get(target); // 查哈希表
+  }
+  if (isObject(target)) {
+    const newObj = Array.isArray(target) ? [] : {};
+    hash.set(target, newObj); // 哈希表设值
+    // TODO:错了，值不是随便设，具体请见输出
+    // TODO:Symbol
+    for (let key in target) {
+      if (target.hasOwnProperty(key)) {
+        if (isObject(target[key])) {
+          newObj[key] = deepClone(target[key], hash); // 传入哈希表
+        } else {
+          newObj[key] = target[key];
+        }
+      }
+    }
+    return newObj;
+  } else {
+    return target;
+  }
+};
+
+var a = {
+  name: "Libai",
+  book: {
+    title: "You Don't Know JS",
+    price: "45",
+  },
+  a1: undefined,
+  a2: null,
+  a3: 123,
+};
+a.target = a;
+console.log(deepClone(a));
 
 // -------------------------------promise--------------------------------------
 
@@ -588,12 +636,99 @@ Function.prototype.myApply = function(context, args) {
 // 对于objec的own属性(property)，原型链上的属性，可枚举(enumerable)和不可枚举属性
 // https://wsydxiangwang.github.io/web/Object/4.html#%E6%94%B9%E5%8F%98%E5%B1%9E%E6%80%A7%E5%8F%AF%E6%9E%9A%E4%B8%BE%E6%80%A7
 
+const myInstaceof = (left, right) => {
+  if (typeof left !== "object" && typeof left !== "function") return false;
+  while (left) {
+    const next = Object.getPrototypeOf(left);
+    if (next === right.prototype) return true;
+    left = next;
+  }
+  return false;
+};
 
+// localStorage, sessionStorage
+// 相同点：
+//       1.大小都为5M
+//       2.都受同源策略限制
+//       3.都以key-value的形式存储，只能接受字符串作为key
+//       4.仅在客户端进行存储，不会跟随http请求
+// 不同点：
+//       1.生命周期
+//         - localstorage，数据永久存在（基于本地文件系统），除非用户手动清除
+//         - sessionStorage，存储的数据在当前会话结束时会被清除，一旦窗口或者标签页被关闭，那么所有通过 sessionStorage 存储的数据也会被删除。
+//       2.作用域
+//         - localstorage，在同源、同浏览器的时候，共享数据，可以相互清除、覆盖、修改？？？
+//         - sessionStorage，一样需要同一浏览器同源文档这一条件。除此之外 sessionStorage
+//                           的作用域还被限定在了窗口（标签页）中，也就是说，只有同一浏览器、同一窗口的同源文档
+//                           才能共享数据(同浏览器限制、同源限制、同标签页限制)
 
+// Object.is()相比 === 的优点
+// 1.可以实现 NaN equals NaN
+// 2.可以实现 +0 equals -0
 
+let a = [
+  { time: 1 },
+  { time: 5 },
+  { time: 8 },
+  { time: 11 },
+  { time: 16 },
+  { time: 17 },
+  { time: 29 },
+  { time: 34 },
+  { time: 39 },
+];
 
+const time_line = [3, 7, 12, 17, 19, 31, 40];
 
+const getValidNums = (a, time_line) => {
+  const a_times = a.sort((a, b) => a.time - b.time).map((item) => item.time);
+  const result = [];
+  const usedId = [];
 
+  for (let i = 0; i < time_line.length; i++) {
+    // 当a里的time用尽后，添加对象
+    if (usedId.length === a.length) {
+      result.push({});
+      continue;
+    }
+    findNearestTarget(result, usedId, a_times, time_line[i]);
+  }
+  // time_line为空返回空数组
+  return result;
+};
 
+// 二分查找
+const findNearestTarget = (result, usedId, a, target) => {
+  let mid;
+  let left_index = 0;
+  let right_index = a.length - 1;
+  while (right_index - left_index > 1) {
+    mid = Math.floor((left_index + right_index) / 2);
+    if (target < a[mid]) {
+      right_index = mid;
+    } else {
+      left_index = mid;
+    }
+  }
+  while (usedId.includes(left_index)) {
+    left_index--;
+  }
+  while (usedId.includes(right_index)) {
+    right_index++;
+  }
 
+  const left = left_index < 0 ? Infinity : target - a[left_index];
+  const right = right_index >= a.length ? Infinity : a[right_index] - target;
+  result.push(
+    getFormatObject(target, left < right ? a[left_index] : a[right_index])
+  );
+};
 
+const getFormatObject = (line, time) => {
+  return {
+    line: line,
+    time: time,
+  };
+};
+
+console.log(getValidNums(a, time_line));
