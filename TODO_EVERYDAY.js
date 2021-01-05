@@ -744,14 +744,6 @@ console.log(getValidNums(a, time_line));
 // - webstorage, sessionstorage, localstorage
 //                     webstorage的两种机制：localstorage, sessionstorage
 
-
-
-
-
-
-
-
-
 const threeHoursLater = (date) => {
   if (!isDateLegal(date)) {
     throw new Error("range error");
@@ -828,13 +820,30 @@ const isWeekend = (date) => {
   return date.getDay() === 6 || date.getDay() === 0;
 };
 
-threeHoursLater(new Date("2020-03-20 7:23:31"));  // 3/20/2020, 12:00:00 PM
-threeHoursLater(new Date("2020-03-20 8:23:31"));  // 3/20/2020, 11:23:31 AM
-threeHoursLater(new Date("2020-03-20 11:23:31")); // 3/20/2020, 4:23:31 PM
-threeHoursLater(new Date("2020-03-20 12:23:31")); // 3/20/2020, 5:00:00 PM
-threeHoursLater(new Date("2020-03-20 14:23:31")); // 3/20/2020, 5:23:31 PM
-threeHoursLater(new Date("2020-03-20 15:23:31")); // 3/23/2020, 8:23:31 AM
-threeHoursLater(new Date("2020-03-21 8:23:31"));  // 3/23/2020, 12:00:00 PM
-threeHoursLater(new Date("2020-03-22 8:23:31"));  // 3/23/2020, 12:00:00 PM
-threeHoursLater(new Date("2020-03-23 19:23:31")); // 3/24/2020, 11:00:00 AM
+const getOutPut = date => {
+  return 
+}
 
+
+// 浏览器线程：
+// GUI 渲染线程
+// JavaScript引擎线程
+// 定时触发器线程
+// 事件触发线程
+// 异步http请求线程
+
+// Browser Process：
+// 1.浏览器的主进程（负责协调、主控）
+// （1）负责包括地址栏，书签栏，前进后退按钮等部分的工作
+// （2）负责处理浏览器的一些不可见的底层操作，比如网络请求和文件访问
+// （3）负责各个页面的管理，创建和销毁其他进程
+// 2.Renderer Process
+// 负责一个 tab 内关于网页呈现的所有事情，页面渲染，脚本执行，事件处理等
+// 3.Plugin Process
+// 负责控制一个网页用到的所有插件，如 flash
+// 每种类型的插件对应一个进程，仅当使用该插件时才创建
+// 4.GPU Process
+// 负责处理 GPU 相关的任务
+
+
+// xss, 缓存
