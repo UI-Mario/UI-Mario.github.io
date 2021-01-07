@@ -443,6 +443,11 @@ console.log([1].reduce((a, b) => a + b, 100));
 // if the task takes a long time. Changes to the DOM are painted only after the task is complete.
 // TODO:意思是否就是，setTimeout的时间点对应的事件是什么呢？它也非要等call stack空了才能放进去吗？
 
+// 甲：除非李去，否则王不去
+// 乙：李和周来自不同部门，他们两个应该都参加。
+// 丙：如果张不去，那么王一定参加
+// 丁：周参加或者张不参加
+
 // TODO:
 // Net:
 // - 3握4挥
@@ -646,22 +651,6 @@ const myInstaceof = (left, right) => {
   return false;
 };
 
-// localStorage, sessionStorage
-// 相同点：
-//       1.大小都为5M
-//       2.都受同源策略限制
-//       3.都以key-value的形式存储，只能接受字符串作为key
-//       4.仅在客户端进行存储，不会跟随http请求
-// 不同点：
-//       1.生命周期
-//         - localstorage，数据永久存在（基于本地文件系统），除非用户手动清除
-//         - sessionStorage，存储的数据在当前会话结束时会被清除，一旦窗口或者标签页被关闭，那么所有通过 sessionStorage 存储的数据也会被删除。
-//       2.作用域
-//         - localstorage，在同源、同浏览器的时候，共享数据，可以相互清除、覆盖、修改？？？
-//         - sessionStorage，一样需要同一浏览器同源文档这一条件。除此之外 sessionStorage
-//                           的作用域还被限定在了窗口（标签页）中，也就是说，只有同一浏览器、同一窗口的同源文档
-//                           才能共享数据(同浏览器限制、同源限制、同标签页限制)
-
 // Object.is()相比 === 的优点
 // 1.可以实现 NaN equals NaN
 // 2.可以实现 +0 equals -0
@@ -735,14 +724,33 @@ console.log(getValidNums(a, time_line));
 // 浏览器事件
 
 // cookie, session, localstorage, webstorage, sessionstorage
+// - cookie：cookie一般是被浏览器以txt的形式存储在电脑硬盘中，供该浏览器进行读、写操作
 // - session, token => https://juejin.cn/post/6906009986149646343#heading-8
 //                     session和token都是为了保持连接的状态所生成的一个签名
-//                     都是由服务端生成，客户端接收保存在cookie或者。。。里
+//                     Session： 当服务器接收到请求时，就从存储在服务器上的无数session信息中去查找客户端请求时带过来的cookie的状态。
+//                                如果服务器中没有这条session信息则添加一条session信息。
+//                                通常Cookie中存的是session信息经过计算后的唯一Id（sessionId）。
 //                     区别在于，session只是个唯一标识，token是根据用户的信息生成的，
 //                     有JWT(JSON Web Token)规范
 //                     而且token的解密只能由特定服务器进行
 // - webstorage, sessionstorage, localstorage
 //                     webstorage的两种机制：localstorage, sessionstorage
+//
+// localStorage, sessionStorage
+// 相同点：
+//       1.大小都为5M
+//       2.都受同源策略限制
+//       3.都以key-value的形式存储，只能接受字符串作为key
+//       4.仅在客户端进行存储，不会跟随http请求
+// 不同点：
+//       1.生命周期
+//         - localstorage，数据永久存在（基于本地文件系统），除非用户手动清除
+//         - sessionStorage，存储的数据在当前会话结束时会被清除，一旦窗口或者标签页被关闭，那么所有通过 sessionStorage 存储的数据也会被删除。
+//       2.作用域
+//         - localstorage，在同源、同浏览器的时候，共享数据，可以相互清除、覆盖、修改？？？
+//         - sessionStorage，一样需要同一浏览器同源文档这一条件。除此之外 sessionStorage
+//                           的作用域还被限定在了窗口（标签页）中，也就是说，只有同一浏览器、同一窗口的同源文档
+//                           才能共享数据(同浏览器限制、同源限制、同标签页限制)
 
 const threeHoursLater = (date) => {
   if (!isDateLegal(date)) {
@@ -820,10 +828,9 @@ const isWeekend = (date) => {
   return date.getDay() === 6 || date.getDay() === 0;
 };
 
-const getOutPut = date => {
-  return 
-}
-
+const getOutPut = (date) => {
+  return;
+};
 
 // 浏览器线程：
 // GUI 渲染线程
@@ -845,5 +852,26 @@ const getOutPut = date => {
 // 4.GPU Process
 // 负责处理 GPU 相关的任务
 
-
 // xss, 缓存
+
+// XSS漏洞的原理是，由于未对用户提交的表单数据或者url参数等数据做处理就显示在了页面上，导致用户提交的内容在页面上被做为html解析执行。
+// 常规方案：对特殊字符进行处理，如"<"和">"等进行转义。
+
+// CSRF，中文名叫跨站请求伪造，原理是，用户登陆了A网站，然后因为某些原因访问了B网站（比如跳转等），
+// B网站直接发送一个A网站的请求进行一些危险操作，由于A网站处于登陆状态，就发生了CSRF攻击
+// （核心就是利用了cookie信息可以被跨站携带）！
+
+
+// const flatObj = (obj, key = "", newObj = {}) => {
+//   for (let index in obj) {
+//     let tempKey = Array.isArray(obj)
+//       ? key + "[" + index + "]"
+//       : key + index + ".";
+//     if (typeof obj[index] === "object" && obj[index]) {
+//       flatObj(obj[index], tempKey, newObj);
+//     } else {
+//       newObj[tempKey] = obj[index];
+//     }
+//   }
+//   return newObj;
+// };
