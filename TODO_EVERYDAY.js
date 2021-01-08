@@ -875,3 +875,25 @@ const getOutPut = (date) => {
 //   }
 //   return newObj;
 // };
+
+// this:
+// 作为对象的方法调用，指向对象
+// 作为普通函数调用，指向全局对象
+// 作为构造器调用，指向new出的对象
+// call, apply, bind
+
+// 流量劫持，promise异常
+// 缓存，https，tcp，ip，手写webpack，继承，promise
+// 项目：性能优化，
+// react: conciliation, fiber, hook
+// 我们写的onClick是事件捕获吗？和事件冒泡的顺序是怎么样的
+// JS拖拽原理
+// cookie的存储有哪些新的属性
+// 说一下移动端适配的原理
+// setState是同步还是异步？
+// setState的回调函数是宏任务还是微任务
+// webpack热更新原理
+// px to rem的计算原理
+// React为什么移除那些生命周期
+
+// https://juejin.cn/post/6914823114299817997#heading-4
