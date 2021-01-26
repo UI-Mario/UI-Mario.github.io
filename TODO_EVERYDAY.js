@@ -166,6 +166,7 @@ var levelOrderBottom = function (root) {
 
 // 不使用递归的dfs，TODO:还不太理解，移步leetcode的动画演示：https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/er-cha-shu-de-zhong-xu-bian-li-by-leetcode-solutio/
 // 结合动画可以理解，动画一忘就不会了
+// 中序遍历
 var inorderTraversal = function (root) {
   const res = [];
   const stk = [];
@@ -919,3 +920,56 @@ const getOutPut = (date) => {
 // 你为什么要离开前一家公司？
 // 你对加班的看法
 // 你希望通过这份工作获得什么？
+
+
+
+const getMaxNumChar = (str) => {
+	const map = new Map()
+	let max = 0;
+	let res = '';
+	for(const item of str) {
+		if(map.has(item)) {
+			map.set(item, map.get(item) + 1)
+		} else {
+			map.set(item, 1)
+		}
+		res = map.get(item) > max ? item : res;
+		max = Math.max(map.get(item), max);
+ 	}
+ 	return res;
+}
+
+console.log(getMaxNumChar('aabbbbbss'))
+
+
+const transform = (str) => {
+	let newStr = ''
+	for(var i=0;i<str.length;i++){
+		if(i===0 || str[i-1] === '_'){
+			newStr += str[i].toUpperCase()
+			continue;
+		}
+		if(str[i]==='_') continue
+		newStr += str[i]
+	}
+	return newStr
+}
+
+console.log(transform('make_by_id'))
+
+const reGenerate = (arr) => {
+	const newArr = []
+	for(var i=0;i<arr.length-1;i++){
+		newArr.push(arr[i])
+		if(Math.abs(arr[i].time - arr[i+1].time)>3) {
+			let count=arr[i].time + 3;
+			while(Math.abs(newArr[newArr.length-1].time - arr[i+1].time)>3){
+				newArr.push({time:count})
+				count +=3
+			}
+		} 
+	}
+	return newArr.push(arr[arr.length-1]);
+}
+
+console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))

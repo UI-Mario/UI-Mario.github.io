@@ -14,16 +14,15 @@
 
   ```
   const action = {
-  	// 必须的，作为action的标识
-  	type: 'ADD_TODO',
-  	// 携带的信息，用于替换redux中的数据，所以很重要
-    // question：
+    // 必须的，作为action的标识
+    type: 'ADD_TODO',
+    // 携带的信息，用于替换redux中的数据，所以很重要
     payload: 'Learn Redux' 
   };
   ```
-
-  view发出action：`store.dispatch(action)`
-
+  
+view发出action：`store.dispatch(action)`
+  
 - reducer
 
   通过收到的action和旧的state，替换成新的state（说成更新state不太好，理由如下）
@@ -97,7 +96,7 @@ if (
 - length，函数希望接受的命名参数的个数（红宝书p116），???js又不对参数进行检查啥的
 - name，函数名
 - 原型链啥的，作用域啥的，略过
-- [[FunctionLocation]]: VM53:1，emm，在目前我的眼里，啥js引擎、虚拟机、运行时环境统称‘环境’，不知道有没有纠正我错误观念的那天
+- [[FunctionLocation]]: VM53:1，emm，在目前我的眼里，啥js引擎、虚拟机、运行时环境统称`环境`，不知道有没有纠正我错误观念的那天
 
 <img src="../../../resource/prototype.jpg" style="zoom:70%;" />
 
@@ -240,8 +239,6 @@ console.log((-0xff).toString(2)); // 输出 '-11111111'
 
 `src/utils/isPlainObject.ts`
 
-乍一看平平无奇，略思索细思极恐
-
 ```
 export default function isPlainObject(obj: any): boolean {
   if (typeof obj !== 'object' || obj === null) return false
@@ -285,7 +282,7 @@ function isPlainObject(value) {
 
 emm，code tells me everything，就是在原型链上到顶对吧
 
-所以，只有`var x = {}` 或`var x = new Object()`这种形式才能过，其他的`var x = new Fruite()`或`Object.create()`都不行
+所以，只有`var x = {}` 或`var x = new Object()`这种形式才能过，其他的`var x = new Fruite()`或`Object.create()`都不行（Object.create太菜，放null进去不行）
 
 Question:更好写法？
 
@@ -337,10 +334,6 @@ export default $$observable
 
 先看第一段[ts:Global Modifing Module](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-modifying-module-d-ts.html)
 
-一般来说这种代码是写在一个.d.ts的文件里，tsconfig里做好设置，`typeRoot`，或是`include`啥的，然后其他地方就可以访问到`Symbol.observable`属性
-
-🌰:
-
 类似问题：
 
 - @types
@@ -348,6 +341,6 @@ export default $$observable
 第二段，question:
 
 - 立即执行函数？
-- Symbol.observable和'@@observable'是几个意思？
+- `Symbol.observable`和`@@observable`是几个意思？
 
 TODO:圣诞节写个锤子的笔记:christmas_tree:
