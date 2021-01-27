@@ -21,8 +21,9 @@
   };
   ```
   
+
 view发出action：`store.dispatch(action)`
-  
+
 - reducer
 
   通过收到的action和旧的state，替换成新的state（说成更新state不太好，理由如下）
@@ -84,8 +85,8 @@ if (
 我个人还是比较好奇`isCrushed.name`是哪来的
 
 <div>
-  <img src="../../../resource/func_prototype.png" style="zoom: 40%;" style="float:left" />
-  <img src="../../../resource/func_properties.png" style="zoom: 40%;" />
+  <img src="https://raw.githubusercontent.com/UI-Mario/UI-Mario.github.io/master/resource/func_prototype.png" style="zoom: 40%;" style="float:left" />
+  <img src="https://raw.githubusercontent.com/UI-Mario/UI-Mario.github.io/master/resource/func_properties.png" style="zoom: 40%;" />
 </div>
 
 
@@ -98,7 +99,7 @@ if (
 - 原型链啥的，作用域啥的，略过
 - [[FunctionLocation]]: VM53:1，emm，在目前我的眼里，啥js引擎、虚拟机、运行时环境统称`环境`，不知道有没有纠正我错误观念的那天
 
-<img src="../../../resource/prototype.jpg" style="zoom:70%;" />
+<img src="https://raw.githubusercontent.com/UI-Mario/UI-Mario.github.io/master/resource/prototype.jpg" style="zoom:70%;" />
 
 ## overload
 
@@ -278,7 +279,7 @@ function isPlainObject(value) {
 
 方便起见配张图
 
-<img src="../../../resource/prototype.jpg" style="zoom: 70%;" style="float:left" />
+<img src="https://raw.githubusercontent.com/UI-Mario/UI-Mario.github.io/master/resource/prototype.jpg" style="zoom: 70%;" style="float:left" />
 
 emm，code tells me everything，就是在原型链上到顶对吧
 
@@ -343,4 +344,4 @@ export default $$observable
 - 立即执行函数？
 - `Symbol.observable`和`@@observable`是几个意思？
 
-TODO:圣诞节写个锤子的笔记:christmas_tree:
+挖坑，不填了:see_no_evil:

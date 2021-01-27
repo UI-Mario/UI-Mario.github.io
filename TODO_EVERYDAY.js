@@ -973,3 +973,11 @@ const reGenerate = (arr) => {
 }
 
 console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
+
+// 写webpack loader， plugin
+// webpack打包vue，打包过程优化，dll啥的
+// - build own component libary, storyBook, 估计只能发博客当谈资
+// - 服务器，这事想了很久，目前还不知道干啥
+// - 3d，找件事刷一刷
+// 总之就是做点有意思的东西博关注，身边没大佬，靠这个自救
+
