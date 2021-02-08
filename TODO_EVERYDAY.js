@@ -981,3 +981,8 @@ console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
 // - 3d，找件事刷一刷
 // 总之就是做点有意思的东西博关注，身边没大佬，靠这个自救
 
+
+// deno, nest.js, docker
+
+
+// https://juejin.cn/post/6923071088331227150
