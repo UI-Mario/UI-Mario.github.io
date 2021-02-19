@@ -974,9 +974,10 @@ const reGenerate = (arr) => {
 
 console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
 
-// 写webpack loader， plugin
-// webpack打包vue，打包过程优化，dll啥的
-// - build own component libary, storyBook, 估计只能发博客当谈资
+// - 写webpack loader， plugin
+// - webpack打包vue，打包过程优化，dll啥的
+// - CI/CD自动化, jenkins, github action
+// - build own component libary, storyBook, desc, 估计只能发博客当谈资
 // - 服务器，这事想了很久，目前还不知道干啥
 // - 3d，找件事刷一刷
 // 总之就是做点有意思的东西博关注，身边没大佬，靠这个自救
@@ -986,3 +987,6 @@ console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
 
 
 // https://juejin.cn/post/6923071088331227150
+
+// 面试时间及顺序记录，很有借鉴意义
+// https://bitable.feishu.cn/app8Ok6k9qafpMkgyRbfgxeEnet?from=logout&table=tblEnSV2PNAajtWE&view=vew5uodacp
