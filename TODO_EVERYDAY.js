@@ -990,3 +990,11 @@ console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
 
 // 面试时间及顺序记录，很有借鉴意义
 // https://bitable.feishu.cn/app8Ok6k9qafpMkgyRbfgxeEnet?from=logout&table=tblEnSV2PNAajtWE&view=vew5uodacp
+
+// 封装网络请求+缓存，service worker
+
+// 事件循环，被打脸了https://zhuanlan.zhihu.com/p/100889981
+
+// http://47.103.79.80/dlpdot/manage_template_vue.git
+// ljz@szltech.com
+// DLkj2021
