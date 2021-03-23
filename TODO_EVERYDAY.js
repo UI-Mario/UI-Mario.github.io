@@ -998,3 +998,11 @@ console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
 // http://47.103.79.80/dlpdot/manage_template_vue.git
 // ljz@szltech.com
 // DLkj2021
+// https://exmail.qq.com/cgi-bin/loginpage?t=dm_loginpage&dmtype=bizmail&s=session_timeout
+// pass: A
+// gitlab：a
+
+// https://github.com/pwstrick/daily/blob/master/article/github.md
+// https://github.com/dennis-jiang/Front-End-Knowledges
+// start to re-study
+// 自动化部署，uniapp、vue-router原理
