@@ -998,6 +998,7 @@ console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
 // http://47.103.79.80/dlpdot/manage_template_vue.git
 // ljz@szltech.com
 // DLkj2021
+// https://operation.cdollar.cn/d5/middle/index.html#/login
 // https://exmail.qq.com/cgi-bin/loginpage?t=dm_loginpage&dmtype=bizmail&s=session_timeout
 // pass: A
 // gitlab：a
