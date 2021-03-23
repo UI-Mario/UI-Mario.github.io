@@ -1006,4 +1006,4 @@ console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
 // https://github.com/pwstrick/daily/blob/master/article/github.md
 // https://github.com/dennis-jiang/Front-End-Knowledges
 // start to re-study
-// 自动化部署，uniapp、vue-router原理
+// 自动化部署，uniapp、vue-router原理，服务器，买本node书
