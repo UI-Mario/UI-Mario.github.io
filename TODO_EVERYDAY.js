@@ -1007,3 +1007,19 @@ console.log(reGenerate([{time:1}, {time:5}, {time: 12}]))
 // https://github.com/dennis-jiang/Front-End-Knowledges
 // start to re-study
 // 自动化部署，uniapp、vue-router原理，服务器，买本node书
+
+// 多了一个知识来源获取站点https://hacks.mozilla.org/
+
+// 被作用域知识打脸了
+function foo() {
+  console.log(a); // 2
+}
+function bar() {
+  var a = 3;
+  foo();
+}
+var a = 2;
+bar();
+
+
+// https://cloud.tencent.com/developer/section/1189824
