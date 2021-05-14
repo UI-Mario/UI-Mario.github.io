@@ -10,7 +10,11 @@
 
 [获取对象上的属性](./front-end/base/js/js高级程序设计/property.md)
 
+[怪异的javascript](./front-end/base/js/随笔/weird_js.md)
+
 ## browser
+
+[客户端存储](./front-end/browser/客户端存储.md)
 
 ## engineering
 

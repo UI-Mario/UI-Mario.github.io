@@ -1023,3 +1023,73 @@ bar();
 
 
 // https://cloud.tencent.com/developer/section/1189824
+
+
+// vue reactivity
+// class Dep {
+//     constructor() {
+//         this.subscribers = new Set();
+//     }
+//     depend() {
+//         this.subscribers.add(target);
+//     }
+//     notify() {
+//         this.subscribers.forEach(c => c());
+//     }
+// }
+
+// const data = {
+//     price: 10,
+//     quantity: 2
+// }
+// let total = 0
+// const target = () => total = data.price * data.quantity
+
+//1.getter/setter=====================================
+// Object.keys(data).forEach(key => {
+//     let internalValue = data[key];
+//     //each property will maintain a dep instance with all the subcription
+//     const dep = new Dep();
+//     Object.defineProperty(data, key, {
+//         get() {
+//             dep.depend();
+//             return internalValue;
+//         },
+//         set(newVal) {
+//             internalValue = newVal;
+//             dep.notify();
+//         }
+//     })
+// });
+
+// target()
+// console.log(total)
+// data.price = 20
+// console.log(total)
+
+
+
+// 2.proxy======================================
+// const dep = new Dep()
+// const proxy = new Proxy(data, {
+//   get(target, prop, receiver){
+//     dep.depend()
+//     return Reflect.get(target, prop, receiver);
+//   },
+//   set(target, key, value, receiver) {
+//     const res = Reflect.set(target, key, value, receiver);
+//     dep.notify()
+//     return res
+//   }
+// })
+
+// const target = () => total = proxy.price * proxy.quantity
+
+// target()
+// console.log(total)
+// console.log(proxy.price)
+// proxy.price = 2
+// console.log(total)
+// proxy.price = 100
+// console.log(total)
+
