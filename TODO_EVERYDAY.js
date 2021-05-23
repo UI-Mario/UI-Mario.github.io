@@ -1025,7 +1025,7 @@ bar();
 // https://cloud.tencent.com/developer/section/1189824
 
 
-// vue reactivity
+// vue reactivitys
 // class Dep {
 //     constructor() {
 //         this.subscribers = new Set();
@@ -1092,4 +1092,25 @@ bar();
 // console.log(total)
 // proxy.price = 100
 // console.log(total)
+
+// promise失败重发
+Promise.retry = (fn, maxCount) => {
+  const excuteFn = () => {
+    return new Promise()
+  }
+}
+
+// TODO:学到了一个新东西，Performance接口
+// 其中performance.navigation里的参数可以显示出
+// 网页经过多少次重定向，
+// 好吧大意了。通过window.location.href直接改的看不出来
+
+// Q:DomContentLoad和load时期分别对应的什么的时候
+// A:
+// document.addEventListener("DOMContentLoaded", ready);
+// 这篇文章讲得不错https://github.com/fi3ework/blog/issues/3，翻译自http://javascript.info/onload-ondomcontentloaded
+
+
+// aes加密
+// 函数柯里化currying
 
