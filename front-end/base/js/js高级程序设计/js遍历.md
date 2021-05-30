@@ -72,6 +72,8 @@ Object.defineProperty可以定义以下属性:
 另外这个方法也是vue2数据劫持的核心
 
 ```
+// 还未看vue2源码，看完回来重构
+// TODO
 var obj = {
   arr: [1, 2, {
     u: 678
