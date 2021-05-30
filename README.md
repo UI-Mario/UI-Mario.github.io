@@ -12,6 +12,8 @@
 
 [怪异的javascript](./front-end/base/js/随笔/weird_js.md)
 
+[js遍历](./front-end/base/js/js高级程序设计/js遍历.md)
+
 ## browser
 
 [客户端存储](./front-end/browser/客户端存储.md)
