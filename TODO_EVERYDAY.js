@@ -1147,8 +1147,170 @@ Promise.retry = (fn, maxCount) => {
 
 
 
+// esplosion
+{/* <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+    body {
+  background-color: black;
+	overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+	height: 100vh;
+	width: 100vw;
+}
+.firework {
+  position: relative;
+  top: 0px;
+  left: 0px;
+	margin: 0px 50px;
+}
+ .firework .explosion {
+  position: absolute;
+  top: 0;
+  width: 5px;
+  height: 20px;
+  opacity: 0;
+  transform-origin: top center;
+	will-change: transform;
+  animation: explosion 0.7s linear 3s infinite;
+}
+ .firework .explosion:nth-child(1) {
+          transform: rotate(0deg);
+}
+ .firework .explosion:nth-child(2) {
+          transform: rotate(90deg);
+}
+ .firework .explosion:nth-child(3) {
+          transform: rotate(180deg);
+}
+ .firework .explosion:nth-child(4) {
+          transform: rotate(-90deg);
+}
+ .firework .explosion:nth-child(5) {
+          transform: rotate(45deg);
+}
+ .firework .explosion:nth-child(6) {
+          transform: rotate(-45deg);
+}
+ .firework .explosion:nth-child(7) {
+          transform: rotate(135deg);
+}
+ .firework .explosion:nth-child(8) {
+          transform: rotate(225deg);
+}
+
+ .firework .explosion .spark{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	will-change: transform;
+	animation: explosion2 0.7s ease-in-out 3s infinite;
+}
 
 
+ .firework .explosion .spark.red {
+  background-color: #E91E63;
+}
+ .firework .explosion .spark.blue {
+  background-color: skyblue;
+}
+ .firework .explosion .spark.green {
+  background-color: limegreen;
+}
+ .firework .explosion .spark.yellow {
+  background-color: yellow;
+}
+ .firework .explosion .spark.purple {
+  background-color: purple;
+}
+@keyframestart{
+	0%{
+		height: 0px;
+		transform: translateY(1000px);
+	}
+	50%{
+		height: 50px;
+	}
+	75%{
+		height: 30px;
+	}
+	100%{
+		height: 0;
+		transform: translateY(0);
+	}
+}
+	
+@keyframes explosion{
+	0%{
+		height: 0px;
+		opacity: 0;
+	}
+	50%{
+		height: 25px;
+		opacity: 1;
+	}
+	100%{
+		height: 0px;
+		opacity: 0;
+	}
+}
+@keyframes explosion2{
+	0%{
+		transform: translateY(0px);
+	}
+	50%{
+		transform: translateY(5px);
+	}
+	75%{
+		transform: translateY(50px);
+	}
+	100%{
+		transform: translateY(70px);
+	}
+}
+  </style>
+  <script type="text/javascript">
+  </script>
+</head>
+
+<body>
+  <div class="firework">
+    <div class="explosion">
+      <div class="spark green"></div>
+    </div>
+    <div class="explosion">
+      <div class="spark blue"></div>
+    </div>
+    <div class="explosion">
+      <div class="spark red"></div>
+    </div>
+    <div class="explosion">
+      <div class="spark red"></div>
+    </div>
+    <div class="explosion">
+      <div class="spark yellow"></div>
+    </div>
+    <div class="explosion">
+      <div class="spark blue"></div>
+    </div>
+    <div class="explosion">
+      <div class="spark green"></div>
+    </div>
+    <div class="explosion">
+      <div class="spark yellow"></div>
+    </div>
+  </div>
+</body>
+
+</html> */}
 
 
 
