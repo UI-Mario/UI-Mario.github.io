@@ -1312,7 +1312,21 @@ justify-content: center;
 
 </html> */}
 
+// 3为什么在4后面
+// async function async1() {
+//   const result = await async2();
+//   console.log(3);
+// }
 
+// async function async2() {
+//   console.log(2);
+// }
+
+// Promise.resolve().then(() => {
+//   console.log(4);
+// });
+
+// async1();
 
 
 
