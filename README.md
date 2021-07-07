@@ -20,11 +20,13 @@
 
 ## engineering
 
-[redux](./front-end/frame/react/redux.md)
+[type of dependency](./front-end/engineering/packageJson_dependencies.md)
+
+[迭代版setTimeout和setInterval](./front-end/engineering/timer_in_js.md)
+
 
 ## frame
-
-[type of dependency](./front-end/engineering/packageJson_dependencies.md)
+[redux](./front-end/frame/react/redux.md)
 
 ## node
 
