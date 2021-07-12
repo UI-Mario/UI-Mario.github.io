@@ -1329,6 +1329,8 @@ justify-content: center;
 // async1();
 
 
-
-
+// JSON.parse(JSON.stringify(arg))的不好(conveat)之处
+// 1.速度慢，因为涉及到了Object => JSON的序列化和反序列化
+// 2.不支持Date类型，具体可以敲一下代码，Dates will be parsed as Strings
+// 3.转化后并不会保存数据的类型(type)，就是说会破坏原型链
 
