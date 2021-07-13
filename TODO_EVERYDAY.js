@@ -1334,3 +1334,14 @@ justify-content: center;
 // 2.不支持Date类型，具体可以敲一下代码，Dates will be parsed as Strings
 // 3.转化后并不会保存数据的类型(type)，就是说会破坏原型链
 
+// window.addEventListener('error') !== window.onError
+
+// deepClone需要考虑的点
+// 1.Date对象，当使用JSON.parse(JSON..)的时候，传过去的值是字符串
+// symbol类型
+// loop
+// typescript type
+// custom class
+
+// w3c膨胀了，xhtml2 vs html5, whatwg vs w3c
+
