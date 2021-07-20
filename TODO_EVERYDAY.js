@@ -1345,3 +1345,54 @@ justify-content: center;
 
 // w3c膨胀了，xhtml2 vs html5, whatwg vs w3c
 
+// js editor & clone
+
+// little trick: console.log`123`
+
+// generator里的yeild可以被for..of..遍历到，普通的func不行
+// for..in..，不会遍历到enumerable: false的属性
+// iterator, [Symbol.Iterator]
+// TODO:改造obj，使for..of..可以遍历
+// let range = {
+//   from: 1,
+//   to: 5,
+
+//   // for..of range calls this method once in the very beginning
+//   [Symbol.iterator]() {
+//     // ...it returns the iterator object:
+//     // onward, for..of works only with that object, asking it for next values
+//     return {
+//       current: this.from,
+//       last: this.to,
+
+//       // next() is called on each iteration by the for..of loop
+//       next() {
+//         // it should return the value as an object {done:.., value :...}
+//         if (this.current <= this.last) {
+//           return { done: false, value: this.current++ };
+//         } else {
+//           return { done: true };
+//         }
+//       }
+//     };
+//   }
+// };
+
+// for(let i of range) {
+//   console.log(i)
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
