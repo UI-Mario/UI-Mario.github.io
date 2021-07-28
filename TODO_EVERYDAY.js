@@ -1386,8 +1386,8 @@ justify-content: center;
 // https://flaviocopes.com/webp/
 
 
-
-
+// xhtml(1,2.0), xml, html, html5, svg, w3c, whatwg, !DOCTYPE之间的爱恨情仇 
+// onclick/DOM0    addEventListener('click')/DOM2
 
 
 
