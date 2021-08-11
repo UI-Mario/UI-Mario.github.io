@@ -1393,6 +1393,10 @@ justify-content: center;
 
 // https://nodejs.dev/learn/discover-javascript-timers
 
+// ES6从语法上转换到ES5，babel是可以做到的，但是一些新的api，本身不是语法上不支持，而是ES5的运行环境没有对应的实现；所以babel的一项重要职责就是代码的polyfill。在babel7之前，babel专门提供了一个库叫babel/polyfill来做这件事情，在babel7之后，这个库被废弃了，因为polyfill有了新的使用方式。这也是babel7.x学习的重要内容之一。
 
+// 因为babel在转换过程中，会利用很多babel自己的工具函数：helpers。在不经过优化的时候，每个文件都会单独包含这些helpers代码，如果文件很多，就会导致大量的重复代码，所以babel专门推出了transform-runtime来对这些helpers进行自动提取和其它优化。
+
+// babel对代码的polyfill，是利用另外两个库来做的：core-js和regenerator-runtime。core-js目前升级到了3.x版本，跟2.x区别也很多;regenerator-runtime没有什么变化。core-js@3.x的版本，也值得学习，将来很有可能会直接使用这个库里面的东西，所以需要掌握它是如何组织ES的各个模块实现的。
 
 
