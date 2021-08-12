@@ -1399,4 +1399,5 @@ justify-content: center;
 
 // babel对代码的polyfill，是利用另外两个库来做的：core-js和regenerator-runtime。core-js目前升级到了3.x版本，跟2.x区别也很多;regenerator-runtime没有什么变化。core-js@3.x的版本，也值得学习，将来很有可能会直接使用这个库里面的东西，所以需要掌握它是如何组织ES的各个模块实现的。
 
-
+// 被震惊到的trick
+// (2 + 3) >>> 1;
