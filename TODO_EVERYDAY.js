@@ -1401,3 +1401,6 @@ justify-content: center;
 
 // 被震惊到的trick
 // (2 + 3) >>> 1;
+
+// 据说可以解决ios上的滑动bounce效果
+// <preference name="DisallowOverscroll" value="true" />
