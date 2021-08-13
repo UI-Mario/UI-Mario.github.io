@@ -1404,3 +1404,10 @@ justify-content: center;
 
 // 据说可以解决ios上的滑动bounce效果
 // <preference name="DisallowOverscroll" value="true" />
+
+// You can specify a list of images, and they will be used in order, so in the next example, browsers that support WebP will use the first image, and fallback to JPG if not:
+
+// <picture>
+//   <source type="image/webp" srcset="image.webp">
+//   <img src="image.jpg" alt="An image">
+// </picture>
