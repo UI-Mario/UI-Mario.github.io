@@ -86,6 +86,10 @@ setInterval(async () => {
 
 即settimeout和setinterval都有一个最小时间间隔，4ms。虽然我跑的时候两个方法的最小时间间隔表现的并不一致
 
+> *Because* `clearTimeout()` *and* `clearInterval()` *clear entries from the same list, either method can be used to clear timers created by* `setTimeout()` *or* `setInterval()`*.*
+
+要清除定时器，cleaTimeout()和clearInterval()可以互用
+
 # 当script超时，两种方法的不同
 
 注：只在chrome上跑出的结果
@@ -122,4 +126,8 @@ setInterval(async () => {
 
 ```
 这里声明了两个计时器，时间间隔为1000ms，但都要执行3000ms时长的任务
+
+# 在script运行途中，清除定时器会怎样
+
+
 

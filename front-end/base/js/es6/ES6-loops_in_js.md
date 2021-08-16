@@ -33,7 +33,7 @@ console.log(item)
 
 ## Iterable objects
 
-An object is iterable if it defines its iteration behavior. The value that will be looped over in a `for …of` construct, in this case, would define its iteration behavior. Built-in types that are iterable include `Arrays`, `Strings`, `Sets`, and `Maps` An `object` is not iterable because it does not specify an `@iterator method`.
+An object is iterable if it defines its iteration behavior. The value that will be looped over in a `for …of` construct, in this case, would define its iteration behavior. Built-in types that are iterable include `Arrays`, `Strings`, `Sets`, and `Maps`, An `object` is not iterable because it does not specify an `@iterator method`.
 
 Basically, in Javascript, all iterables are enumarables, but not all enumerables are iterables.
 
@@ -134,3 +134,34 @@ NB: This benchmark depends on the machine you’re using, as well as your browse
 Of all the looping constructs discussed above, the one that gives us the most control is the `for..of` loop. We can use it with the keywords `return`, `continue`, and `break`. This means we can specify what we want to happen to each element in an `array`, and whether or not we want to leave early or skip.
 
 With this information in mind, make sure to use the appropriate tool based on what you hope to achieve in your code.
+
+# make an object iterable 
+
+> https://javascript.info/generators
+
+```
+let range = {
+  from: 1,
+  to: 5,
+
+  // for..of range calls this method once in the very beginning
+  [Symbol.iterator]() {
+    // ...it returns the iterator object:
+    // onward, for..of works only with that object, asking it for next values
+    return {
+      current: this.from,
+      last: this.to,
+
+      // next() is called on each iteration by the for..of loop
+      next() {
+        // it should return the value as an object {done:.., value :...}
+        if (this.current <= this.last) {
+          return { done: false, value: this.current++ };
+        } else {
+          return { done: true };
+        }
+      }
+    };
+  }
+};
+```

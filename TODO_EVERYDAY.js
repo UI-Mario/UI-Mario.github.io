@@ -1393,6 +1393,6 @@ justify-content: center;
 
 // https://nodejs.dev/learn/discover-javascript-timers
 
-
-
+// 这个方法主要用于满足统计和诊断代码的需要，这些代码通常尝试在卸载（unload）文档之前向web服务器发送数据。
+// navigator.sendBeacon(url, data);
 
