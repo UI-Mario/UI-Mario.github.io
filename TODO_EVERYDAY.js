@@ -1413,3 +1413,6 @@ justify-content: center;
 //   <source type="image/webp" srcset="image.webp">
 //   <img src="image.jpg" alt="An image">
 // </picture>
+
+// console.log('hello %s', 'world'),瞬间让我觉得JavaScript不那么孤独
+
