@@ -1416,3 +1416,6 @@ justify-content: center;
 
 // console.log('hello %s', 'world'),瞬间让我觉得JavaScript不那么孤独
 
+// 场景: yarn install后, 发现.lock文件居然有diff, 怎么操作????
+// yarn install --frozen-lockfile
+
