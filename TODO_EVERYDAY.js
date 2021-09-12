@@ -1416,7 +1416,6 @@ justify-content: center;
 
 // console.log('hello %s', 'world'),瞬间让我觉得JavaScript不那么孤独
 
-<<<<<<< HEAD
 
 // web component
 {/* <!DOCTYPE html>
@@ -1477,8 +1476,175 @@ justify-content: center;
 </body>
 
 </html> */}
-=======
 // 场景: yarn install后, 发现.lock文件居然有diff, 怎么操作????
 // yarn install --frozen-lockfile
 
->>>>>>> d1a89f881ba5d3d716241f357f78ec2860ae6b4d
+
+// image/pixel to ascii
+// <!DOCTYPE html>
+// <html lang="en">
+
+// <head>
+//   <meta charset="UTF-8">
+//   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+//   <title>Ascii Art Converter</title>
+//   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+//   <style type="text/css">
+//   * {
+//     margin: 0;
+//   }
+
+//   body {
+//     padding: 2rem 3rem;
+//     font-family: 'VT323', monospace;
+//     line-height: 1.5rem;
+//     font-size: 18px;
+//   }
+
+//   header {
+//     display: flex;
+//     align-items: baseline;
+//     font-size: 18px;
+//   }
+
+//   header h1 {
+//     margin-right: 1.5rem;
+//   }
+
+//   input {
+//     margin-top: 2rem;
+//     font-size: 18px;
+//   }
+
+//   pre {
+//     font-family: 'Courier New', 'monospace';
+//     margin: 1rem auto;
+//     font-size: 8px;
+//     line-height: 1;
+//   }
+
+//   footer {
+//     position: absolute;
+//     bottom: 1rem;
+//   }
+//   </style>
+// </head>
+
+// <body>
+//   <header>
+//     <h1>Ascii Art Converter</h1>
+//     <p>Upload a picture and turn it into pure ASCII masterpiece!</p>
+//   </header>
+//   <input type="file" name="picture" />
+//   <canvas id="preview"></canvas>
+//   <pre id="ascii"></pre>
+//   </footer>
+//   <script type="text/javascript">
+//   const canvas = document.getElementById('preview');
+//   const fileInput = document.querySelector('input[type="file"');
+//   const asciiImage = document.getElementById('ascii');
+
+//   const context = canvas.getContext('2d');
+
+//   const toGrayScale = (r, g, b) => 0.21 * r + 0.72 * g + 0.07 * b;
+
+//   const getFontRatio = () => {
+//     const pre = document.createElement('pre');
+//     pre.style.display = 'inline';
+//     pre.textContent = ' ';
+
+//     document.body.appendChild(pre);
+//     const { width, height } = pre.getBoundingClientRect();
+//     document.body.removeChild(pre);
+
+//     return height / width;
+//   };
+
+//   const fontRatio = getFontRatio();
+
+//   const convertToGrayScales = (context, width, height) => {
+//     const imageData = context.getImageData(0, 0, width, height);
+
+//     const grayScales = [];
+
+//     for (let i = 0; i < imageData.data.length; i += 4) {
+//       const r = imageData.data[i];
+//       const g = imageData.data[i + 1];
+//       const b = imageData.data[i + 2];
+
+//       const grayScale = toGrayScale(r, g, b);
+//       imageData.data[i] = imageData.data[i + 1] = imageData.data[i + 2] = grayScale;
+
+//       grayScales.push(grayScale);
+//     }
+
+//     context.putImageData(imageData, 0, 0);
+
+//     return grayScales;
+//   };
+
+//   const MAXIMUM_WIDTH = 80;
+//   const MAXIMUM_HEIGHT = 80;
+
+//   const clampDimensions = (width, height) => {
+//     const rectifiedWidth = Math.floor(getFontRatio() * width);
+
+//     if (height > MAXIMUM_HEIGHT) {
+//       const reducedWidth = Math.floor(rectifiedWidth * MAXIMUM_HEIGHT / height);
+//       return [reducedWidth, MAXIMUM_HEIGHT];
+//     }
+
+//     if (width > MAXIMUM_WIDTH) {
+//       const reducedHeight = Math.floor(height * MAXIMUM_WIDTH / rectifiedWidth);
+//       return [MAXIMUM_WIDTH, reducedHeight];
+//     }
+
+//     return [rectifiedWidth, height];
+//   };
+
+//   fileInput.onchange = (e) => {
+//     const file = e.target.files[0];
+
+//     const reader = new FileReader();
+//     reader.onload = (event) => {
+//       const image = new Image();
+//       image.onload = () => {
+//         const [width, height] = clampDimensions(image.width, image.height);
+
+//         canvas.width = width;
+//         canvas.height = height;
+
+//         context.drawImage(image, 0, 0, width, height);
+//         const grayScales = convertToGrayScales(context, width, height);
+
+//         drawAscii(grayScales, width);
+//       }
+
+//       image.src = event.target.result;
+//     };
+
+//     reader.readAsDataURL(file);
+//   };
+
+//   const grayRamp = '$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,"^`\'. ';
+//   const rampLength = grayRamp.length;
+
+//   const getCharacterForGrayScale = grayScale => grayRamp[Math.ceil((rampLength - 1) * grayScale / 255)];
+
+//   const drawAscii = (grayScales, width) => {
+//     const ascii = grayScales.reduce((asciiImage, grayScale, index) => {
+//       let nextChars = getCharacterForGrayScale(grayScale);
+//       if ((index + 1) % width === 0) {
+//         nextChars += '\n';
+//       }
+
+//       return asciiImage + nextChars;
+//     }, '');
+
+//     asciiImage.textContent = ascii;
+//   };
+//   </script>
+// </body>
+
+// </html>
