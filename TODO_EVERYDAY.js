@@ -1416,3 +1416,63 @@ justify-content: center;
 
 // console.log('hello %s', 'world'),瞬间让我觉得JavaScript不那么孤独
 
+
+// web component
+{/* <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>webcomponent</title>
+  <style type="text/css">
+  h3 {
+    color: green;
+  }
+  </style>
+</head>
+
+<body>
+  <test-component name="Livio">
+    <span slot="age">22</span>
+    <span slot="id">1010</span>
+  </test-component>
+  <script type="text/javascript">
+  const template = document.createElement('template')
+  template.innerHTML = `
+  	<style>
+  	  h3 {
+  	  	color: red
+  	  }
+  	</style>
+  	<h3></h3>
+  	<div>age: <slot name="age" /></div>
+  	<div>id: <slot name="id" /></div>
+
+  `
+
+  class TestComponent extends HTMLElement {
+    constructor() {
+      super()
+
+      this.attachShadow({ mode: 'open' })
+      this.shadowRoot.appendChild(template.content.cloneNode(true))
+      this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name')
+    }
+    connectedCallback() {
+      console.log('connected')
+      this.shadowRoot.querySelector('h3').addEventListener('click', () => {
+        this.clickH3()
+      })
+    }
+    clickH3() {
+      console.log(123)
+    }
+    disconnectedCallback() {
+      this.shadowRoot.querySelector('h3').removeEventListener()
+    }
+  }
+  window.customElements.define('test-component', TestComponent)
+  </script>
+</body>
+
+</html> */}
