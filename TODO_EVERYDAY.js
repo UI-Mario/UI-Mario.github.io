@@ -1416,6 +1416,7 @@ justify-content: center;
 
 // console.log('hello %s', 'world'),瞬间让我觉得JavaScript不那么孤独
 
+<<<<<<< HEAD
 
 // web component
 {/* <!DOCTYPE html>
@@ -1476,3 +1477,8 @@ justify-content: center;
 </body>
 
 </html> */}
+=======
+// 场景: yarn install后, 发现.lock文件居然有diff, 怎么操作????
+// yarn install --frozen-lockfile
+
+>>>>>>> d1a89f881ba5d3d716241f357f78ec2860ae6b4d
