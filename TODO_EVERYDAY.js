@@ -1517,16 +1517,18 @@ justify-content: center;
 //     font-size: 18px;
 //   }
 
+//   canvas {
+//   	width: 500px;
+//   	height: 500px;
+//   }
+
 //   pre {
 //     font-family: 'Courier New', 'monospace';
 //     margin: 1rem auto;
-//     font-size: 8px;
+//     font-size: 2px;
 //     line-height: 1;
-//   }
-
-//   footer {
-//     position: absolute;
-//     bottom: 1rem;
+//     width: 500px;
+//     height: 500px;
 //   }
 //   </style>
 // </head>
@@ -1538,8 +1540,9 @@ justify-content: center;
 //   </header>
 //   <input type="file" name="picture" />
 //   <canvas id="preview"></canvas>
+//   <!-- 怎么用字符表示疏密程度呢 -->
+//   <!-- 又怎么控制呢 -->
 //   <pre id="ascii"></pre>
-//   </footer>
 //   <script type="text/javascript">
 //   const canvas = document.getElementById('preview');
 //   const fileInput = document.querySelector('input[type="file"');
@@ -1547,8 +1550,15 @@ justify-content: center;
 
 //   const context = canvas.getContext('2d');
 
+//   // 灰度计算有点忘了，平均好像一个效果
+//   // 是r g b一样就能有灰度效果吗
 //   const toGrayScale = (r, g, b) => 0.21 * r + 0.72 * g + 0.07 * b;
 
+//   // 讲道理这是干啥
+//   // 因为字符和像素点不一样，像素点是正方形，但字符的话是长方形
+//   // (不知道不同字符形状是否有差别)
+//   // 这里计算空字符串的宽高比来代表所有
+//   // 不然计算出来的字符画会变形
 //   const getFontRatio = () => {
 //     const pre = document.createElement('pre');
 //     pre.style.display = 'inline';
@@ -1584,8 +1594,8 @@ justify-content: center;
 //     return grayScales;
 //   };
 
-//   const MAXIMUM_WIDTH = 80;
-//   const MAXIMUM_HEIGHT = 80;
+//   const MAXIMUM_WIDTH = 500;
+//   const MAXIMUM_HEIGHT = 500;
 
 //   const clampDimensions = (width, height) => {
 //     const rectifiedWidth = Math.floor(getFontRatio() * width);
@@ -1627,9 +1637,11 @@ justify-content: center;
 //     reader.readAsDataURL(file);
 //   };
 
-//   const grayRamp = '$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,"^`\'. ';
+//   const grayRamp = '界好你世三二一。- _';
 //   const rampLength = grayRamp.length;
 
+//   // 很有讲究的这玩意，根据灰度值取出合适的字符
+//   // [0, 255]对应密集到稀疏
 //   const getCharacterForGrayScale = grayScale => grayRamp[Math.ceil((rampLength - 1) * grayScale / 255)];
 
 //   const drawAscii = (grayScales, width) => {
