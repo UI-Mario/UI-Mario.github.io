@@ -1648,3 +1648,14 @@ justify-content: center;
 // </body>
 
 // </html>
+
+// css样式隔离的几种方式
+// 1- css in line/css in js
+//    不能复用，不能缓存，权重太高不好覆盖
+// 2- @import
+//    什么时候下载？
+// Web Component中的Shadow Dom，但是有点极端，外部完全无法覆盖，太死板
+
+// https://zhuanlan.zhihu.com/p/38715068
+// less sass变量声明覆盖规则有差异
+// postcss跟这类预处理器不是一个级别，算是compile css
