@@ -1671,3 +1671,5 @@ justify-content: center;
 // https://zhuanlan.zhihu.com/p/38715068
 // less sass变量声明覆盖规则有差异
 // postcss跟这类预处理器不是一个级别，算是compile css
+
+// process.cwd()和process.execPath
