@@ -1673,3 +1673,6 @@ justify-content: center;
 // postcss跟这类预处理器不是一个级别，算是compile css
 
 // 其中 user-scalable 设置为 no 可以解决移动端点击事件延迟问题（拓展）
+// process.cwd()和process.execPath
+
+// 挺长的，docker beginner guide：https://docker-curriculum.com/
