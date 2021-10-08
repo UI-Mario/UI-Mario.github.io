@@ -1679,7 +1679,19 @@ justify-content: center;
 
 // JSON.stringify可以接受3个参数
 
-// 在解析css中遇到了@import，会阻塞解析，下载完成后再继续
+
+// https://www.stevesouders.com/blog/2009/04/09/dont-use-import/
+// (未手动实践)
+// 在解析css中遇到了@import，会阻塞解析，下载完成后再继续(想了想这也是应该的)
+// 那么多个@import可以并行下载吗?
+// 除了ie，link与@import之间的下载不会阻塞
+
+
+
+
+
+
+
 
 
 
