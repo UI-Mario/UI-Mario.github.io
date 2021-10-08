@@ -1676,3 +1676,10 @@ justify-content: center;
 // process.cwd()和process.execPath
 
 // 挺长的，docker beginner guide：https://docker-curriculum.com/
+
+// JSON.stringify可以接受3个参数
+
+
+
+
+
