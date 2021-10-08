@@ -1679,7 +1679,7 @@ justify-content: center;
 
 // JSON.stringify可以接受3个参数
 
-
+// 在解析css中遇到了@import，会阻塞解析，下载完成后再继续
 
 
 
