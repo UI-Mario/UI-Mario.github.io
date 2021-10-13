@@ -1681,11 +1681,21 @@ justify-content: center;
 
 
 // https://www.stevesouders.com/blog/2009/04/09/dont-use-import/
-// (未手动实践)
+// (未手动实践，仅考虑@import和link)
 // 在解析css中遇到了@import，会阻塞解析，下载完成后再继续(想了想这也是应该的)
 // 那么多个@import可以并行下载吗?
 // 除了ie，link与@import之间的下载不会阻塞
+// link vs @import
+// 1.使用范围
+// 
+// 当然关于link标签本身还有很多让我迷惑的地方
+// 比如rel属性的值等于preload或者prefetch
+// (虽然大致知道他俩的差别，preload强制浏览器调整优先级，prefetch由浏览器决定是否调整，至于具体的调整优先级是啥，迷茫了)，
+// (chrome的优先级文档：https://docs.google.com/document/d/1bCDuq9H1ih9iNjgzyAL0gpwNFiEP4TZS-YLRp_RuMlc/edit)
+// as属性，crossorigin属性
+// title属性
 
+// trick: 给html元素加上title属性，鼠标hover在元素上时就会有文字提示
 
 
 
