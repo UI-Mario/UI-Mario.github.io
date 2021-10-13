@@ -1693,7 +1693,7 @@ justify-content: center;
 // 比如rel属性的值等于preload或者prefetch
 // (虽然大致知道他俩的差别，preload强制浏览器调整优先级，prefetch由浏览器决定是否调整，至于具体的调整优先级是啥，迷茫了)，
 // (chrome的优先级文档：https://docs.google.com/document/d/1bCDuq9H1ih9iNjgzyAL0gpwNFiEP4TZS-YLRp_RuMlc/edit)
-// as属性(as说是indicating the specific class，比较语义化，那type属性不会冲突吗，type虽然只要MIME类型)，
+// as属性(as说是indicating the specific class，MDN上列出了有限个选择，那type属性不会冲突吗，type虽然只要MIME类型)，
 // crossorigin属性
 // title属性(不懂)
 
