@@ -1703,7 +1703,14 @@ justify-content: center;
 
 // unlink array copy: [...arr], arr.slice(0)
 
-
+// for (macroTask of macroTaskQueue) { // 遍历所有宏服务
+//     // 1. 执行当前宏服务下的所有同步任务
+//     handleMacroTask();
+//     // 2. 遍历执行当前宏服务下的微服务
+//     for (microTask of microTaskQueue) {
+//         handleMicroTask(microTask);
+//     }
+// }
 
 
 
