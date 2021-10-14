@@ -1713,4 +1713,12 @@ justify-content: center;
 // }
 
 
+// vue nextTick执行时机是在dom更新后
+// // Modify data
+// vm.msg = 'Hello';
+// // DOM has not been updated yet
+// Vue.nextTick(function() {
+//   // DOM updated
+// });
+
 
