@@ -1,12 +1,21 @@
 # 有意思的css属性
 
-## background-clip
+## background-clip, clip-path
+[MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip)
+
+background-clip限制了background的scope，clip-path更像是一个蒙层，bilibili那个震撼到我的人像防弹幕遮挡，就是靠的clip-path
+
+（css的clip规则已被移除，虽然目前仍有部分浏览器支持）
 
 ## backface-visibility
 
 ## filter
 
 ## perspective preserve-3d
+
+## text-shadow
+
+其实这个规则并不是多么少见，但是之前偶尔了解到，这个可以做出发光效果:open_mouth:
 
 # 预处理器 
 ## sass less
