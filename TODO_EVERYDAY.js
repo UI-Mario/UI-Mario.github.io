@@ -1741,7 +1741,13 @@ justify-content: center;
 // ["👨", "‍", "👩", "‍", "👦", "‍", "👦"]
 
 
+// async函数返回值会被包裹一层promise，await可以获取promise内部最终状态
+// 不是废话，看下列代码
+// async function test() {
+//   return await Promise.resolve({a:1})
+// }
 
+// test() 这里返回的是个promise
 
 
 
