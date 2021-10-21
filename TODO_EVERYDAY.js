@@ -1746,12 +1746,13 @@ justify-content: center;
 // async function test() {
 //   return await Promise.resolve({a:1})
 // }
-
 // test() 这里返回的是个promise
 
-
-
-
+// 当引入的模块存在异步更新的时候，commonjs和es module获取的会不一样
+// commonjs是相当于从对象上读取属性，也就是把结果缓存到对应属性上
+// 而es module则是个引用，指向特定代码，可以获取到模块的更新
+// 有关循环引用的问题，依然还是很迷惑，commonjs的循环引用node官网有讲解
+// es module的话暂时看的是阮一峰老师的例子：https://www.ruanyifeng.com/blog/2015/11/circular-dependency.html
 
 
 
