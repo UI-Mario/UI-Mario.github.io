@@ -1757,3 +1757,22 @@ justify-content: center;
 
 // https://www.eet-china.com/mp/a44399.html
 
+// 有关SYN floor攻击的规避方式之一：cookie及其缺陷https://mp.weixin.qq.com/s/n17NjGRab1u5eXkOCro1gg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
