@@ -1760,7 +1760,7 @@ justify-content: center;
 // 有关SYN floor攻击的规避方式之一：cookie及其缺陷https://mp.weixin.qq.com/s/n17NjGRab1u5eXkOCro1gg
 
 
-
+// 使用svg的viewbox属性，来实现svg元素的scalable，demo：https://codepen.io/Warinia/pen/JjybvXW
 
 
 
