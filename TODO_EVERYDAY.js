@@ -1762,6 +1762,11 @@ justify-content: center;
 
 // 使用svg的viewbox属性，来实现svg元素的scalable，demo：https://codepen.io/Warinia/pen/JjybvXW
 
+// vue3带来了什么？
+// vue2逻辑代码写得到处都是，vue3提供了setup，理论上什么都可以写进去
+// 这个，感觉很鸡肋，感觉没有react处理得好，setup肯定不止想解决这个问题，里面也包了很多东西
+// 例如ref, reactive什么的，可以开发自己选择是否响应式，这个挺好
+// 感觉vue3也是被typescript给逼的，但是不太懂为什么vue3就能很丝滑的接进ts
 
 
 
