@@ -1769,6 +1769,8 @@ justify-content: center;
 // 感觉vue3也是被typescript给逼的，但是不太懂为什么vue3就能很丝滑的接进ts
 
 
+// vue template转render函数的可视化网站，https://vue-template-explorer.netlify.app
+// 类似于babel的那个
 
 
 
