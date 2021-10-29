@@ -1772,7 +1772,10 @@ justify-content: center;
 // vue template转render函数的可视化网站，https://vue-template-explorer.netlify.app
 // 类似于babel的那个
 
-
+// 有关模块管理工具有很多，最著名的是npm和yarn，
+// 最近了解到一个pnpm，主卖点在于软链安装模式
+// 可是最近yarn3.1也支持软链安装模式了，不懂会不会被干掉
+// 还有个corepack，号称包管理工具的管理工具，不知会不会一网打尽
 
 
 
