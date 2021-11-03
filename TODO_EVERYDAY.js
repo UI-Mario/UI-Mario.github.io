@@ -1787,7 +1787,8 @@ justify-content: center;
 
 
 
-
+// babel.config和babelrc
+// 只意会到了全局和局部，涉及具体使用和可能导致问题，绕晕了
 
 
 
