@@ -1790,6 +1790,13 @@ justify-content: center;
 // babel.config和babelrc
 // 只意会到了全局和局部，涉及具体使用和可能导致问题，绕晕了
 
+// 数字千分位逗号的神奇方法
+// const nf = new Intl.NumberFormat('en-US')
+// export const toThousands = (number) => {
+//   return nf.format(number)
+// }
+
+
 
 
 
