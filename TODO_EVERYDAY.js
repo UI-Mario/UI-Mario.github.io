@@ -1804,8 +1804,8 @@ justify-content: center;
 // 用javascript实现screenshot(页面or Div)的几种方式和他们的优缺点
 // https://hackernoon.com/how-to-take-screenshots-in-the-browser-using-javascript-l92k3xq7
 
-
-
+// documentfragment, 本身并不在document里,但是可以插入子节点
+// http://javascript.ruanyifeng.com/dom/text.html#toc10
 
 
 
