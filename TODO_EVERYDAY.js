@@ -1805,6 +1805,7 @@ justify-content: center;
 // https://hackernoon.com/how-to-take-screenshots-in-the-browser-using-javascript-l92k3xq7
 
 // documentfragment, 本身并不在document里,但是可以插入子节点
+// plus:这网站真的很有用, 阮一峰大佬nb
 // http://javascript.ruanyifeng.com/dom/text.html#toc10
 
 
