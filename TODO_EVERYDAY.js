@@ -1801,3 +1801,19 @@ justify-content: center;
 // https://webpack.docschina.org/guides/code-splitting/
 
 
+// 用javascript实现screenshot(页面or Div)的几种方式和他们的优缺点
+// https://hackernoon.com/how-to-take-screenshots-in-the-browser-using-javascript-l92k3xq7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
