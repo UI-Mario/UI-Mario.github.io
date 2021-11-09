@@ -1808,7 +1808,11 @@ justify-content: center;
 // plus:这网站真的很有用, 阮一峰大佬nb
 // http://javascript.ruanyifeng.com/dom/text.html#toc10
 
-
+// webpack的hash，chunkhash和contenthash
+// (仅从网上看的，没找到官网描述)
+// hash -> 针对整个项目
+// contenthash -> 针对文件
+// chunkhash -> 针对chunk
 
 
 
