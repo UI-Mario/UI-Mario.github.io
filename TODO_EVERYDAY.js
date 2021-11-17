@@ -1822,5 +1822,13 @@ justify-content: center;
 
 // https://zhuanlan.zhihu.com/p/28113197
 
+// this的设计目的，是在函数内部，代指函数当前的运行环境
+
+// worker与主线程之间是传值而不是传址
+
+
+
+
+
 
 
