@@ -1830,6 +1830,11 @@ justify-content: center;
 // 所谓构造函数，就是通过这个函数生成一个对象，this指向这个函数
 // 生成对象包括两种含义，一是函数返回个对象，二是直接指向函数本身(函数也是对象)
 
+// 移动端的适配、调试、错误收集
+
+// http的广度扫盲
+// https://mp.weixin.qq.com/s?__biz=Mzg5NDY2MDk4Mw==&mid=2247486375&idx=1&sn=faab06e21d0db873c53d5c7b3237c45c&chksm=c01d73bff76afaa906d721ca15b36231b69c246c47a7c6ab726c6502d7f7c5f282e3fbf03590&cur_album_id=2007539102832738314&scene=189#rd
+
 
 
 
