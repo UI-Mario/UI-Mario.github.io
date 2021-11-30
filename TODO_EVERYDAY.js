@@ -1884,7 +1884,8 @@ justify-content: center;
 // // *: 首屏时间
 // timingInfo.domComplete - timingInfo.fetchStart;
 
-
+// 实现原理：当一项资源（如<img>或<script>）加载失败，加载资源的元素会触发一个Event接口的error事件，并执行该元素上的onerror()处理函数。
+// 这些error事件不会向上冒泡到window，不过能被window.addEventListener在**捕获**阶段捕获。
 
 
 
