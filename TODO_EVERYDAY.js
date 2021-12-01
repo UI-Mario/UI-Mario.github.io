@@ -1890,7 +1890,7 @@ justify-content: center;
 // https://github.com/febobo/web-interview
 
 
-
+// vuef的provide和inject，通俗的说就是可以给子组件传值，跟props不同的是不用每一层都传，感觉跟react的context异曲同工
 
 
 
