@@ -1902,7 +1902,10 @@ justify-content: center;
 // css的visibility和opacity都会隐藏元素，但是元素依然存在
 // 区别在于对于子元素的影响
 
-
+// 都先自己写一遍
+// http0.9-http2
+// http 301 302 307
+// 性能优化
 
 
 
