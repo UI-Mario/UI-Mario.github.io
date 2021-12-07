@@ -1909,8 +1909,8 @@ justify-content: center;
 // 673最长递增子序列
 // vue的问题汇总https://vue3js.cn/interview/vue/mixin.html
 
-
-
+// 见过的唯一一个写测试的promise
+// https://github.dev/imtaotao/promise
 
 
 
