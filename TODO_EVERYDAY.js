@@ -1920,7 +1920,9 @@ justify-content: center;
 
 
 // https://juejin.cn/post/6945625394154307592
-
+// CDN意义，根据网络带宽、负载情况、距离用户距离和响应时间综合考虑，CDN防止DDos攻击(隐藏源站IP，边缘节点作为防线承受压力)
+// setTimeout为什么最小4ms(无限嵌套造成和主线程抢CPU和高额耗电)，是浏览器内核自己写的
+// MDN上说postMessage可以0ms
 
 
 
