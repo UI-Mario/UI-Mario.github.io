@@ -1926,7 +1926,7 @@ justify-content: center;
 // DNS根域名服务器13个
 // html可以开启DNS-prefetch
 // 在DNS缓存之前，还可以经过浏览器缓存、操作系统缓存、路由器缓存
-
+// Symbol.for()的这个全局登记特性，可以用在不同的 iframe 或 service worker 中取到同一个值。
 
 
 
