@@ -1929,7 +1929,8 @@ justify-content: center;
 // Symbol.for()的这个全局登记特性，可以用在不同的 iframe 或 service worker 中取到同一个值。
 
 
-
+// 我愿意为了这本开源解析付钱
+// http://caibaojian.com/vue-design/art/8vue-reactive-dep-watch.html#%E5%88%9D%E8%AF%86-watcher
 
 
 
