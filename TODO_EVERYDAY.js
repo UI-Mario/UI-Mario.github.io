@@ -1934,7 +1934,14 @@ justify-content: center;
 
 // https://juejin.cn/post/6844904165672484871
 
-
+// Function.prototype.fakeBind = function (context, ...args) {
+//   var that = this;
+//   const fn = function (...other) {
+//     return that.call(this instanceof fn ? this : context, ...args, ...other);
+//   };
+//   fn.prototype = Object.create(this.prototype)
+//   return fn
+// };
 
 
 
