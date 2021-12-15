@@ -1944,5 +1944,183 @@ justify-content: center;
 // };
 
 
+// ========================================================================================
+// vue为了让数据驱动视图，都有哪些数据？
+// props等父组件更新逻辑(这都涉及到双向绑定了)
+// data等内部自身数据驱动视图更新
+// vuex等
+// provide，inject
+// mixin
 
+// 什么时候通知更新？
+
+// 都有谁要更新
+// 每个数据都有一个Dep实例，里面有个subs保存着数据对应的观察者
+// 可以是computed可以是watch可以是render等抽象逻辑
+// Dep会通知Watch，Watch里走逻辑
+// 所以Dep只是个接线员，保存着数据对应的Watcher们，然后通知他们
+// 数据改变之后的连锁反应，由Watch管理，一个Watcher管理一个反应(正作用?)
+// 那Dep怎么知道一个数据会有哪些Watcher，扯淡的是Watcher又为什么会收集Dep
+// (有说法是避免收集重复依赖, 还有移除无用的依赖)？
+// emm移除无用依赖到还有可能
+
+// Dep只有两个作用,收集Watcher,执行Watcher的update方法
+// Watcher让我有点懵,不过他的update会先schedular,进一个队列
+// 然后run方法才是实际更新
+
+// 当watcher触发更新时,并不会马上更新,而是进入schedular调度
+// 由于存在一个src/core/config, 而config.async默认为true
+// 所以watcher触发的更新会被包裹, 依次尝试下列包裹方法:
+// promise.then
+// mutationObserber
+// setImmediate
+// settimeout兜底
+// 然后对一整个队列进行更新,
+// 为什么偏向于microtask呢, 两个方面
+// 1.macrotask提了太多issue
+// 2.microtask在浏览器渲染前会全部执行完,这样下一次渲染直接拿最新数据
+// 而macrotask任务之间可能穿插着渲染
+
+let uid = 0;
+
+class Dep {
+  constructor() {
+    this.subs = [];
+  }
+  // depend()
+  // notify() {
+  //   // TODO:为什么要这样搞一下
+  //   const subs = this.subs.slice(0)
+  //   for(var i=0;i<subs.length;i++) {
+  //     subs[i].update()
+  //   }
+  // }
+}
+
+class Observer {
+  // 需要保证进来value的是引用类型
+  constructor(value) {
+    this.value = value;
+    // 为进来的加个标识，不用重复操作
+    Object.defineProperty(value, "__ob__", {
+      value: this,
+      configurable: true,
+      enumerable: false,
+    });
+    if (Array.isArray(value)) {
+      this.observeArray(value);
+    } else {
+      this.walk(value);
+    }
+  }
+  walk(obj) {
+    const keys = Object.keys(obj);
+    for (var i = 0; i < keys.length; i++) {
+      defineReactive(obj, keys[i]);
+    }
+  }
+  observeArray(array) {
+    for (var i = 0; i < array.length; i++) {
+      observe(array[i]);
+    }
+  }
+}
+
+function observe(value) {
+  if (value === null || typeof value !== "object") {
+    return;
+  }
+  // 是否已经响应式过
+  if (value["__obj__"]) return value["__ob__"];
+
+  let ob = new Observer(value);
+  return ob;
+}
+
+function defineReactive(obj, key, val, shallow) {
+  const property = Object.getOwnPropertyDescriptor(obj, key);
+
+  // 这里也就是为什么Object.freeze会冻结掉响应式
+  // 因为Object.freeze会使writable和configable为false
+  if (property && property.configurable === false) {
+    return;
+  }
+
+  // 不能覆盖用户自定义的getter、setter
+  // 我们只是监听事件发生
+  const getter = property && property.get;
+  const setter = property && property.set;
+  // TODO:这段代码什么意思还不知道
+  if ((!getter || setter) && arguments.length === 2) {
+    val = obj[key];
+  }
+
+  // observe里判断是否是引用类型，是的话新建Observer实例
+  let childOb = !shallow && observe(val);
+
+  Object.defineProperty(obj, key, {
+    enumerable: true,
+    configurable: true,
+    get() {
+      // 先执行
+      const value = getter ? getter.call(this) : val;
+      console.log("obj get", value);
+      return value;
+    },
+    set(newValue) {
+      const value = getter ? getter.call(this) : val;
+      // 比较+0 -0和NaN
+      if (Object.is(newValue, value)) {
+        return;
+      }
+      if (setter) {
+        val = setter.call(obj, newValue);
+      } else {
+        val = newValue;
+      }
+      // 因为这里可能会赋值给引用类型，希望新进来的引用类型也能响应式
+      childOb = !shallow && observe(newValue);
+      console.log("obj set", newValue, value);
+    },
+  });
+}
+
+const obj = {
+  a: {
+    c: 999,
+    z: {
+      j: 9,
+    },
+  },
+  b: new Map(),
+  m: null,
+  arr: [{ num: ["num"] }, 2, [{ mm: "mm" }, 4]],
+};
+
+new Observer(obj);
+
+var nn = obj.a;
+
+// obj.a.c = {y:0}
+
+// obj.a.c.y = 'jjjjj'
+
+// obj.m = 8
+
+// obj.b.set('t', 123)
+
+// nn = obj.b.get('t')
+
+// nn = obj.arr[0].num
+// obj.arr[0].num = 'new num'
+obj.a.z.j = 99;
+
+// Object.definePropertyproperty缺点
+// 数组干了两件事，劫持原型链上的方法(对于会修改原数组的方法，监听新加的元素)和监听原有的元素
+// 漏掉的有：动态添加元素，例如arr[i] = {}
+// 对于Map、Set等数据结构，效果不符预期
+// 需要迭代到最底层，数据嵌套过深影响性能，比如需要不断触发外层元素的get，最后才触发目标元素的get或者set
+
+// vue3 proxy的优势
+// 支持数据对象Array、Object、Map、Set、WeakMap、WeakSet
 
