@@ -2124,3 +2124,31 @@ obj.a.z.j = 99;
 // vue3 proxy的优势
 // 支持数据对象Array、Object、Map、Set、WeakMap、WeakSet
 
+// dom中的Node和Element
+// Node可以是Dom内的任意节点，例如文本或注释，也可以是HTML的Tag，是DOM对象
+// Element是特殊的Node，可以直接在HTML中用Tag声明，并且用id、class等property修饰
+// 比如：var body = document.querySelector('body')
+// body.childElementCount不会统计注释节点<!--1212-->
+// 但是body.childNodes统计的时候，不仅会统计注释节点，
+// 而且在所有Element节点间会穿插text类型的Node，value是换行符
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
