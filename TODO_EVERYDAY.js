@@ -2132,7 +2132,217 @@ obj.a.z.j = 99;
 // 但是body.childNodes统计的时候，不仅会统计注释节点，
 // 而且在所有Element节点间会穿插text类型的Node，value是换行符
 
+// 同源：协议、域名(疑问，这里是域名还是IP，因为DNS服务器不是可以给一个域名配置多个IP吗)、端口
 
+// 同源策略的限制范围：
+// - cookie、localstorage和indexDB的获取
+// - DOM
+
+
+// // http重定向相关：https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Redirections
+// 永久重定向
+// - 301 Moved Permanently
+// - 308 Permanently Redirect
+// 临时重定向
+// - 302 Found 
+// - 303 See Other
+// - 307 Temporary Redirect
+// 特殊重定向
+// - 300 Multiple Choice
+// - 304 Not Modified
+
+// xss，。。。
+
+// - Cache-Control: max-age=1000s
+// - Expires: 写的是过期时间，时间格式很多
+
+// - Last-Modified，跟If-Modified-Since比较
+// - Etag，对文件进行标识的字符串，跟If-None-Match比较
+
+// service-worker：为主线程提供网络或缓存的中间服务
+
+// 限制get和post请求的东西
+
+// 1.http规范，最高 -> 
+// 2.对于前后端交互，由restful规范，但是其他地方，比如后端自己用，就没有restful规范
+// 3.浏览器(缓存，url长度)和服务器限制
+
+// get 没有副作用(幂等 => 可以缓存)
+// 有关get请求的一大误点在于，get请求参数可以携带在query也可以携带在body，
+// http规范里没有说get就不能有body，但是浏览器和restful规范会有限制
+// 并且，当作为接口使用的时候(包括使用xhr发送)，没有所谓的query参数必须是ascii码和特殊字符，那是浏览器url 
+// http协议本身没有对url长度做任何规定，实际的限制是客户端/浏览器+服务器的限制
+
+// css的BFC，层叠上下文，选择器，z-index
+
+// 对于普通函数而言，this指向运行时所在的对象，它本身就是个动态的
+// 箭头函数的this跟常规函数的规则完全不同。无论用什么方式、在哪调用箭头函数，里面的this永远等于外层函数的this。
+// 换句话说，箭头函数的this是由词法决定的，它没有定义自己的执行上下文。
+// const shape = {
+//   radius: 10,
+//   diameter() {
+//     return this.radius * 2
+//   },
+//   perimeter: () => 2 * Math.PI * this.radius
+// }
+
+// const test = shape.diameter
+// console.log(test())
+// console.log(shape.perimeter())
+
+// 原生具备 Iterator 接口的数据结构如下。
+// Array
+// Map
+// Set
+// String
+// TypedArray
+// 函数的 arguments 对象
+// NodeList 对象
+
+// 有6种falsy值: null, undefined, 0, '', NaN, false
+
+// 使用import，被导入的模块会先执行
+
+// Object.freeze使得无法添加、修改或删除对象的属性(除非属性的值是另一个对象)
+
+// 如果某个网站想要https, 但是图片等资源是http, 并且已经固化到了数据库, 这样浏览器会提示不安全
+// 有个办法可以解决, 就是加上meta标签, 页面上所有请求都强制https
+// <meta http-equiv="Content-Security-Policy" 
+//     content="upgrade-insecure-requests">
+// 某些请求的服务器如果不支持https,就会挂掉
+
+// npm会把node_modules/.bin子目录加到path里
+
+// Blob: 一个专门用于支持文件操作的二进制对象
+// ArrayBuffer: 二进制缓冲区，类似数组，但跟数组的特性和api有很大不同
+// Buffer： nodejs提供的二进制缓冲区，常用来处理I/O操作
+
+// Content-Length(HTTP1.1), HTTP消息长度, 用十进制数字表示的八位字节的数目(经过压缩就是压缩后的大小)
+// (因为对于HTTP1.1来说，一个TCP连接可以传送多个回应，而且又是按顺序回应(对头阻塞), 所以
+// 用Content-Length表示这次回应的字节大小，来区分多个回应)
+// Content-Encoding, 说明数据的压缩方法
+
+// any 和 unknown 的最大区别是, unknown 是 top type (任何类型都是它的 subtype) , 
+// 而 any 即是 top type, 又是 bottom type (它是任何类型的 subtype ) ,
+// 这导致 any 基本上就是放弃了任何类型检查.
+
+// bit，二进制位，要么是0要么是1，是计算机内部数据存储的最小单位
+// 字节，byte，1byte = 8bit，一个英文字符占1字节，一个汉字占2字节
+// 1024byte = 1KB
+
+// ascii: 一个字节有8bit，可以表示2^8=256种状态，美国人认为足够表示字母和一些特殊字符就可以了
+// 所以ascii码最高位固定为0，可以表示2^7=128种状态
+
+// unicode就是一种规则，使用2个字节表示一个字符，解决了编码统一问题
+// 使每种语言的每个字符都有统一且唯一的二进制编码
+// ascii码对于多出来的二进制位，采取补0
+
+// UTF-8是unicode在不同系统平台上的实现方式，它是一种变长的编码方式
+// 就是说，可以使用1~4个字节表示一个符号
+
+// 可能引起内存泄露的点：
+// 1.全局变量没有手动销毁，因为全局变量不会被回收
+// 2.闭包中的局部变量没有被释放
+// 3.没有移除监听事件
+// 3.console出去的对象
+
+// 进程间通信(IPC)大概有这几种：
+// 匿名管道
+// 命名管道
+// 信号量
+// 消息队列
+// 信号
+// 共享内存
+// 套接字
+
+// http1.0 头信息是ascii码，数据体是MIME，Expires
+// http1.1 管线化，即一个TCP链接可以发送多个请求，且不需要等上一个请求返回，Cache-Control： max-age
+// (how: )
+// http1 头信息和数据体都是二进制，统称为帧
+//       (二进制，多工，数据流，头信息压缩，服务端推送(gzip或是同时维护一张表))
+
+
+// ip地址是由网络号和主机号组成，并且按照网络号长度和网络号的前几位进行了分类
+
+// 0.0.0.0: 在服务器中，0.0.0.0指的是本机上的所有IPV4地址，如果一台主机有两个IP地址，并且起了
+// 一个0.0.0.0的服务，那么通过两个IP都可以访问到这个服务
+// 反过来就不行
+
+// 127.0.0.1：回环地址指的所有网络号为127的IP地址，所以127.0.0.1属于回环地址
+// 回环地址：所有发往该类地址的数据包都要loop back
+// 所以可以通过ping 127.0.0.1测试一台机器的网络是否正常工作
+
+// localhost：是个域名，一般机器里ipv4对应的是127.0.0.1，ipv6里对应的是::1
+
+// ipv6的设计初衷是为了解决ip地址枯竭，ipv4 32bit，ipv6 128bit
+
+// CORS简单请求复杂请求
+
+// 据说Symbol的出现最初是为了私有属性，后来Object.getOwnPropertySymbols淡化了这个概念
+
+
+
+// css的BFC，层叠上下文，选择器，z-index， 各种居中
+
+// BFC: 块级格式化上下文，具有BFC特性的元素会成为一个独立的容器，容器内部元素的布局不会影响到外部
+//      且BFC具有一些特殊的规则
+// BFC规则：
+//  - 同一BFC内，外边距会折叠(解决办法：放在不同的BFC)
+//  - 可以包含浮动元素(因为一个元素float不为none的时候，会脱离正常文档流，导致父容器高度塌陷)
+//  - 内部的block会垂直分布
+// 怎么触发BFC：
+//  - position为absolute或者fixed 
+//  - overflow不为visible
+//  - float不为none 
+//  - display为inline-block，table-cells等
+
+// CSS：层叠水平(stacking level)
+// 著名的7阶层叠水平图片
+// 当不同的DOM元素发生重叠的时候，(同一层叠上下文下)会按照层叠水平控制显示顺序，
+// 而z-index可以调整顺序，使元素上浮或下沉
+// (层叠水平一样的，根据DOM顺序)
+
+// 而不同的层叠上下文发生重叠：
+// 层叠上下文：
+
+// css居中：
+//  - 水平：text-align: center / 
+//          margin: 50% transform: translateX(-50%)
+//          left: 50% transform -50%
+//          flex;
+//          grid
+
+
+// 网络：http/s握手挥手，tcp/udp，缓存，攻击防护(xss, csrf, csp)，token/session, oauth，
+
+// 浏览器限制脚本内发出的跨域请求，同源策略
+// cors: 目前浏览器大多支持，会附加一些额外的头信息，有时候还会多发一次请求
+// - 简单请求：
+//   - 请求方法是GET, HEAD或者POST 
+//   - 允许人为设置的头部字段：Accept, Acept-Language, Content-Language, Content-type
+//   - Content-Type的值仅限于以下三种：
+//     - text/plain 
+//     - multipart/form-data
+//     - application/x-www-urlencoded
+// - 复杂请求：
+
+// cors对于简单请求会在头信息里加上Origin字段
+// 而复杂请求，会提前发一个预检请求，options，
+// options会携带以下参数：
+// - origin
+// - Access-control-request-method，有哪些跨域方法
+// - access-control-request-headers，有哪些请求头
+
+// javascript > style > layout > paint > composite 
+
+// vue：keep-alive, next-tick, diff, computed/watch ，父组件更新子组件不更新
+// vue-router: 架构，使用，组件，原理
+// vuex：区别，思维
+
+
+// webpack原理，loader plugin
+
+// javascript作用域、原型链、闭包，每个讲4-5分钟
 
 
 
